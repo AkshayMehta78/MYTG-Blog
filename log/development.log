@@ -1,0 +1,2509 @@
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-27 07:06:59 -0700
+
+ActiveRecord::PendingMigrationError - 
+
+Migrations are pending. To resolve this issue, run:
+
+	bin/rake db:migrate RAILS_ENV=development
+
+:
+  activerecord (4.1.4) lib/active_record/migration.rb:389:in `check_pending!'
+  activerecord (4.1.4) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.4) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:56:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/84767620/variables" for 127.0.0.1 at 2014-07-27 07:07:00 -0700
+  [1m[36m (3.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (13.5ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to DeviseCreateUsers (20140724044607)
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (21.2ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140724044607"]]
+  [1m[36m (7.1ms)[0m  [1mcommit transaction[0m
+Migrating to CreateArticles (20140724052009)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "articles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" varchar(255), "user_id" integer, "published_at" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140724052009"]]
+  [1m[36m (12.8ms)[0m  [1mcommit transaction[0m
+Migrating to ActsAsTaggable (20140724070723)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255)) [0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "taggings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tag_id" integer, "taggable_id" integer, "taggable_type" varchar(255), "tagger_id" integer, "tagger_type" varchar(255), "context" varchar(128), "created_at" datetime) 
+  [1m[36m (0.2ms)[0m  [1mCREATE  INDEX "index_taggings_on_tag_id" ON "taggings" ("tag_id")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_taggings_on_tag_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_taggings_on_tag_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1mCREATE  INDEX "index_taggings_on_taggable_id_and_taggable_type_and_context" ON "taggings" ("taggable_id", "taggable_type", "context")[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20140724070723"]]
+  [1m[36m (3.9ms)[0m  [1mcommit transaction[0m
+Migrating to ActsAsTaggableOnMigration (20140724071440)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255)) [0m
+SQLite3::SQLException: table "tags" already exists: CREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255)) 
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (3.0ms)[0m  [1mCREATE TABLE "articles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" varchar(255), "user_id" integer, "published_at" varchar(255), "created_at" datetime, "updated_at" datetime, "attachment_file_name" varchar(255), "attachment_content_type" varchar(255), "attachment_file_size" integer, "attachment_updated_at" datetime, "total_comment" integer DEFAULT 0) [0m
+  [1m[35m (3.5ms)[0m  CREATE TABLE "ckeditor_assets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "data_file_name" varchar(255) NOT NULL, "data_content_type" varchar(255), "data_file_size" integer, "assetable_id" integer, "assetable_type" varchar(30), "type" varchar(30), "width" integer, "height" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (3.3ms)[0m  CREATE  INDEX "idx_ckeditor_assetable" ON "ckeditor_assets" ("assetable_type", "assetable_id")
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='idx_ckeditor_assetable' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='idx_ckeditor_assetable' AND type='index'
+[0m
+  [1m[35m (2.9ms)[0m  CREATE  INDEX "idx_ckeditor_assetable_type" ON "ckeditor_assets" ("assetable_type", "type", "assetable_id")
+  [1m[36m (2.7ms)[0m  [1mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "commenter" varchar(255), "body" text, "article_id" integer, "created_at" datetime, "updated_at" datetime, "email" varchar(255)) [0m
+  [1m[35m (3.1ms)[0m  CREATE  INDEX "index_comments_on_article_id" ON "comments" ("article_id")
+  [1m[36m (2.6ms)[0m  [1mCREATE TABLE "taggings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tag_id" integer, "taggable_id" integer, "taggable_type" varchar(255), "tagger_id" integer, "tagger_type" varchar(255), "context" varchar(128), "created_at" datetime) [0m
+  [1m[35m (3.8ms)[0m  CREATE UNIQUE INDEX "taggings_idx" ON "taggings" ("tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type")
+  [1m[36m (0.3ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='taggings_idx' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='taggings_idx' AND type='index'
+[0m
+  [1m[35m (3.9ms)[0m  CREATE  INDEX "index_taggings_on_taggable_id_and_taggable_type_and_context" ON "taggings" ("taggable_id", "taggable_type", "context")
+  [1m[36m (3.1ms)[0m  [1mCREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "taggings_count" integer DEFAULT 0) [0m
+  [1m[35m (2.6ms)[0m  CREATE UNIQUE INDEX "index_tags_on_name" ON "tags" ("name")
+  [1m[36m (3.2ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (2.5ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (3.8ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (5.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (3.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (3.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140725182811')
+  [1m[36m (2.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140724052009')[0m
+  [1m[35m (2.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140725123311')
+  [1m[36m (4.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140724070723')[0m
+  [1m[35m (2.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140724071443')
+  [1m[36m (1.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140725182810')[0m
+  [1m[35m (11.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140724071442')
+  [1m[36m (4.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140725064606')[0m
+  [1m[35m (3.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140724044607')
+  [1m[36m (3.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140724071441')[0m
+  [1m[35m (2.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140724071440')
+  [1m[36m (3.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140724073832')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-27 07:10:22 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by AndroidblogController#index as HTML
+  [1m[35mArticle Load (0.5ms)[0m  SELECT  "articles".* FROM "articles"  LIMIT 10 OFFSET 0
+  Rendered androidblog/index.html.erb within layouts/application (28.8ms)
+Completed 200 OK in 5124ms (Views: 4964.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-07-27 07:10:27 -0700
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-07-27 07:10:27 -0700
+
+
+Started GET "/assets/vendor/modernizr.js?body=1" for 127.0.0.1 at 2014-07-27 07:10:27 -0700
+
+
+Started GET "/assets/androidblog.css?body=1" for 127.0.0.1 at 2014-07-27 07:10:27 -0700
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2014-07-27 07:10:27 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-27 07:10:27 -0700
+
+
+Started GET "/assets/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2014-07-27 07:10:27 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-27 07:10:27 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-27 07:10:27 -0700
+
+
+Started GET "/assets/foundation/foundation.js?body=1" for 127.0.0.1 at 2014-07-27 07:10:27 -0700
+
+
+Started GET "/assets/foundation/foundation.abide.js?body=1" for 127.0.0.1 at 2014-07-27 07:10:27 -0700
+
+
+Started GET "/assets/foundation/foundation.accordion.js?body=1" for 127.0.0.1 at 2014-07-27 07:10:27 -0700
+
+
+Started GET "/assets/foundation/foundation.alert.js?body=1" for 127.0.0.1 at 2014-07-27 07:10:27 -0700
+
+
+Started GET "/assets/foundation/foundation.clearing.js?body=1" for 127.0.0.1 at 2014-07-27 07:10:27 -0700
+
+
+Started GET "/assets/foundation/foundation.dropdown.js?body=1" for 127.0.0.1 at 2014-07-27 07:10:27 -0700
+
+
+Started GET "/assets/foundation/foundation.interchange.js?body=1" for 127.0.0.1 at 2014-07-27 07:10:27 -0700
+
+
+Started GET "/assets/foundation/foundation.joyride.js?body=1" for 127.0.0.1 at 2014-07-27 07:10:27 -0700
+
+
+Started GET "/assets/foundation/foundation.magellan.js?body=1" for 127.0.0.1 at 2014-07-27 07:10:27 -0700
+
+
+Started GET "/assets/foundation/foundation.offcanvas.js?body=1" for 127.0.0.1 at 2014-07-27 07:10:27 -0700
+
+
+Started GET "/assets/foundation/foundation.orbit.js?body=1" for 127.0.0.1 at 2014-07-27 07:10:27 -0700
+
+
+Started GET "/assets/foundation/foundation.reveal.js?body=1" for 127.0.0.1 at 2014-07-27 07:10:27 -0700
+
+
+Started GET "/assets/foundation/foundation.slider.js?body=1" for 127.0.0.1 at 2014-07-27 07:10:27 -0700
+
+
+Started GET "/assets/foundation/foundation.tab.js?body=1" for 127.0.0.1 at 2014-07-27 07:10:27 -0700
+
+
+Started GET "/assets/foundation/foundation.tooltip.js?body=1" for 127.0.0.1 at 2014-07-27 07:10:27 -0700
+
+
+Started GET "/assets/foundation/foundation.topbar.js?body=1" for 127.0.0.1 at 2014-07-27 07:10:27 -0700
+
+
+Started GET "/assets/foundation.js?body=1" for 127.0.0.1 at 2014-07-27 07:10:27 -0700
+
+
+Started GET "/assets/foundation/foundation.equalizer.js?body=1" for 127.0.0.1 at 2014-07-27 07:10:27 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-27 07:10:27 -0700
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-07-27 07:10:27 -0700
+
+
+Started GET "/assets/androidblog.js?body=1" for 127.0.0.1 at 2014-07-27 07:10:27 -0700
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2014-07-27 07:10:27 -0700
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-07-27 07:10:27 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-27 07:10:27 -0700
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2014-07-27 07:10:27 -0700
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2014-07-27 07:10:43 -0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.erb within layouts/application (162.1ms)
+Completed 200 OK in 211ms (Views: 178.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-27 07:10:51 -0700
+Processing by AndroidblogController#index as HTML
+  [1m[36mArticle Load (0.4ms)[0m  [1mSELECT  "articles".* FROM "articles"  LIMIT 10 OFFSET 0[0m
+  Rendered androidblog/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 27ms (Views: 24.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2014-07-27 07:10:52 -0700
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/registrations/new.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 29ms (Views: 27.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2014-07-27 07:10:55 -0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 19ms (Views: 17.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2014-07-27 07:11:24 -0700
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/registrations/new.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 19ms (Views: 18.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2014-07-27 07:11:36 -0700
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6K44k7rm1SG4QOPU1yWqlsCJ7X0BiIz0vmovM6rL3wY=", "user"=>{"email"=>"aks@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'aks@gmail.com' LIMIT 1[0m
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "users" ("created_at", "email", "encrypted_password", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", "2014-07-27 14:11:36.672234"], ["email", "aks@gmail.com"], ["encrypted_password", "$2a$10$O9J0m0bdbbp2IP5q8/wyZOg1.TtgD7675IYNJ3wx4cSg019uRWl0u"], ["updated_at", "2014-07-27 14:11:36.672234"]]
+  [1m[36m (5.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Binary data inserted for `string` type on column `current_sign_in_ip`
+Binary data inserted for `string` type on column `last_sign_in_ip`
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_at" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = 1[0m  [["current_sign_in_at", "2014-07-27 14:11:36.720038"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_at", "2014-07-27 14:11:36.720038"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2014-07-27 14:11:36.721590"]]
+  [1m[35m (14.8ms)[0m  commit transaction
+Redirected to http://localhost:3000/articles
+Completed 302 Found in 353ms (ActiveRecord: 21.9ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2014-07-27 07:11:36 -0700
+Processing by ArticlesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mArticle Load (0.2ms)[0m  SELECT  "articles".* FROM "articles"  LIMIT 3 OFFSET 0
+  Rendered articles/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 29ms (Views: 17.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-07-27 07:11:37 -0700
+
+
+Started GET "/assets/androidblog.css?body=1" for 127.0.0.1 at 2014-07-27 07:11:37 -0700
+
+
+Started GET "/assets/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2014-07-27 07:11:37 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-27 07:11:37 -0700
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-07-27 07:11:37 -0700
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2014-07-27 07:11:37 -0700
+
+
+Started GET "/assets/foundation/foundation.accordion.js?body=1" for 127.0.0.1 at 2014-07-27 07:11:37 -0700
+
+
+Started GET "/assets/foundation/foundation.abide.js?body=1" for 127.0.0.1 at 2014-07-27 07:11:37 -0700
+
+
+Started GET "/assets/foundation/foundation.js?body=1" for 127.0.0.1 at 2014-07-27 07:11:37 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-27 07:11:37 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-27 07:11:37 -0700
+
+
+Started GET "/assets/vendor/modernizr.js?body=1" for 127.0.0.1 at 2014-07-27 07:11:37 -0700
+
+
+Started GET "/assets/foundation/foundation.clearing.js?body=1" for 127.0.0.1 at 2014-07-27 07:11:37 -0700
+
+
+Started GET "/assets/foundation/foundation.dropdown.js?body=1" for 127.0.0.1 at 2014-07-27 07:11:37 -0700
+
+
+Started GET "/assets/foundation/foundation.interchange.js?body=1" for 127.0.0.1 at 2014-07-27 07:11:37 -0700
+
+
+Started GET "/assets/foundation/foundation.alert.js?body=1" for 127.0.0.1 at 2014-07-27 07:11:37 -0700
+
+
+Started GET "/assets/foundation/foundation.joyride.js?body=1" for 127.0.0.1 at 2014-07-27 07:11:37 -0700
+
+
+Started GET "/assets/foundation/foundation.magellan.js?body=1" for 127.0.0.1 at 2014-07-27 07:11:37 -0700
+
+
+Started GET "/assets/foundation/foundation.tooltip.js?body=1" for 127.0.0.1 at 2014-07-27 07:11:37 -0700
+
+
+Started GET "/assets/foundation/foundation.slider.js?body=1" for 127.0.0.1 at 2014-07-27 07:11:37 -0700
+
+
+Started GET "/assets/foundation/foundation.tab.js?body=1" for 127.0.0.1 at 2014-07-27 07:11:37 -0700
+
+
+Started GET "/assets/foundation/foundation.orbit.js?body=1" for 127.0.0.1 at 2014-07-27 07:11:37 -0700
+
+
+Started GET "/assets/foundation/foundation.reveal.js?body=1" for 127.0.0.1 at 2014-07-27 07:11:37 -0700
+
+
+Started GET "/assets/foundation/foundation.offcanvas.js?body=1" for 127.0.0.1 at 2014-07-27 07:11:37 -0700
+
+
+Started GET "/assets/foundation.js?body=1" for 127.0.0.1 at 2014-07-27 07:11:37 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-27 07:11:37 -0700
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-07-27 07:11:37 -0700
+
+
+Started GET "/assets/foundation/foundation.topbar.js?body=1" for 127.0.0.1 at 2014-07-27 07:11:37 -0700
+
+
+Started GET "/assets/foundation/foundation.equalizer.js?body=1" for 127.0.0.1 at 2014-07-27 07:11:37 -0700
+
+
+Started GET "/assets/androidblog.js?body=1" for 127.0.0.1 at 2014-07-27 07:11:37 -0700
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2014-07-27 07:11:37 -0700
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-07-27 07:11:37 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-27 07:11:37 -0700
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2014-07-27 07:11:37 -0700
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2014-07-27 07:11:44 -0700
+Processing by ArticlesController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered articles/_form.html.erb (162.5ms)
+  Rendered articles/new.html.erb within layouts/application (194.9ms)
+Completed 200 OK in 212ms (Views: 206.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/assets/ckeditor/config.js?t=E5OD" for 127.0.0.1 at 2014-07-27 07:11:44 -0700
+
+
+Started GET "/assets/ckeditor/skins/moono/editor_gecko.css?t=E5OD" for 127.0.0.1 at 2014-07-27 07:11:45 -0700
+
+
+Started GET "/assets/ckeditor/lang/en.js?t=E5OD" for 127.0.0.1 at 2014-07-27 07:11:45 -0700
+
+
+Started GET "/assets/ckeditor/styles.js?t=E5OD" for 127.0.0.1 at 2014-07-27 07:11:45 -0700
+
+
+Started GET "/assets/ckeditor/skins/moono/icons.png" for 127.0.0.1 at 2014-07-27 07:11:45 -0700
+
+
+Started GET "/assets/ckeditor/contents.css?t=E5OD" for 127.0.0.1 at 2014-07-27 07:11:45 -0700
+
+
+Started GET "/assets/ckeditor/skins/moono/editor_gecko.css?t=E5OD" for 127.0.0.1 at 2014-07-27 07:12:05 -0700
+
+
+Started GET "/assets/ckeditor/plugins/icons.png?t=E5OD" for 127.0.0.1 at 2014-07-27 07:12:05 -0700
+
+
+Started GET "/assets/ckeditor/plugins/clipboard/dialogs/paste.js?t=E5OD" for 127.0.0.1 at 2014-07-27 07:12:06 -0700
+
+
+Started GET "/assets/ckeditor/skins/moono/dialog.css?t=E5OD" for 127.0.0.1 at 2014-07-27 07:12:06 -0700
+
+
+Started GET "/assets/ckeditor/skins/moono/images/close.png" for 127.0.0.1 at 2014-07-27 07:12:06 -0700
+
+
+Started GET "/assets/ckeditor/plugins/image/dialogs/image.js?t=E5OD" for 127.0.0.1 at 2014-07-27 07:12:17 -0700
+
+
+Started GET "/assets/ckeditor/skins/moono/images/refresh.png" for 127.0.0.1 at 2014-07-27 07:12:17 -0700
+
+
+Started GET "/assets/ckeditor/skins/moono/images/lock.png" for 127.0.0.1 at 2014-07-27 07:12:17 -0700
+
+
+Started GET "/ckeditor/pictures?CKEditor=article_body&CKEditorFuncNum=1&langCode=en" for 127.0.0.1 at 2014-07-27 07:12:21 -0700
+Processing by Ckeditor::PicturesController#index as HTML
+  Parameters: {"CKEditor"=>"article_body", "CKEditorFuncNum"=>"1", "langCode"=>"en"}
+  [1m[35mCkeditor::Picture Load (0.2ms)[0m  SELECT  "ckeditor_assets".* FROM "ckeditor_assets"  WHERE "ckeditor_assets"."type" IN ('Ckeditor::Picture')  ORDER BY id desc LIMIT 24 OFFSET 0
+  Rendered /var/lib/gems/1.9.1/gems/ckeditor-4.1.0/app/views/ckeditor/shared/_asset.html.erb (0.0ms)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "ckeditor_assets"  WHERE "ckeditor_assets"."type" IN ('Ckeditor::Picture')[0m
+  Rendered /var/lib/gems/1.9.1/gems/ckeditor-4.1.0/app/views/ckeditor/pictures/index.html.erb within layouts/ckeditor/application (5.2ms)
+  Rendered /var/lib/gems/1.9.1/gems/ckeditor-4.1.0/app/views/ckeditor/shared/_asset_tmpl.html.erb (7.6ms)
+Completed 200 OK in 297ms (Views: 230.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/ckeditor/filebrowser/stylesheets/uploader.css?body=1" for 127.0.0.1 at 2014-07-27 07:12:21 -0700
+
+
+Started GET "/assets/ckeditor/application.css?body=1" for 127.0.0.1 at 2014-07-27 07:12:21 -0700
+
+
+Started GET "/assets/ckeditor/filebrowser/javascripts/jquery.min.js?body=1" for 127.0.0.1 at 2014-07-27 07:12:21 -0700
+
+
+Started GET "/assets/ckeditor/filebrowser/javascripts/rails.js?body=1" for 127.0.0.1 at 2014-07-27 07:12:21 -0700
+
+
+Started GET "/assets/ckeditor/filebrowser/javascripts/jquery.endless-scroll.js?body=1" for 127.0.0.1 at 2014-07-27 07:12:21 -0700
+
+
+Started GET "/assets/ckeditor/filebrowser/javascripts/fileuploader.js?body=1" for 127.0.0.1 at 2014-07-27 07:12:21 -0700
+
+
+Started GET "/assets/ckeditor/filebrowser/javascripts/application.js?body=1" for 127.0.0.1 at 2014-07-27 07:12:21 -0700
+
+
+Started GET "/assets/ckeditor/filebrowser/javascripts/jquery.tmpl.min.js?body=1" for 127.0.0.1 at 2014-07-27 07:12:21 -0700
+
+
+Started GET "/assets/ckeditor/application.js?body=1" for 127.0.0.1 at 2014-07-27 07:12:21 -0700
+
+
+Started GET "/assets/ckeditor/filebrowser/images/gal_add.png" for 127.0.0.1 at 2014-07-27 07:12:21 -0700
+
+
+Started GET "/ckeditor/pictures?CKEditor=article_body&CKEditorFuncNum=1&langCode=en" for 127.0.0.1 at 2014-07-27 07:14:15 -0700
+Processing by Ckeditor::PicturesController#index as HTML
+  Parameters: {"CKEditor"=>"article_body", "CKEditorFuncNum"=>"1", "langCode"=>"en"}
+  [1m[35mCkeditor::Picture Load (0.3ms)[0m  SELECT  "ckeditor_assets".* FROM "ckeditor_assets"  WHERE "ckeditor_assets"."type" IN ('Ckeditor::Picture')  ORDER BY id desc LIMIT 24 OFFSET 0
+  Rendered /var/lib/gems/1.9.1/gems/ckeditor-4.1.0/app/views/ckeditor/shared/_asset.html.erb (0.0ms)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "ckeditor_assets"  WHERE "ckeditor_assets"."type" IN ('Ckeditor::Picture')[0m
+  Rendered /var/lib/gems/1.9.1/gems/ckeditor-4.1.0/app/views/ckeditor/pictures/index.html.erb within layouts/ckeditor/application (9.0ms)
+  Rendered /var/lib/gems/1.9.1/gems/ckeditor-4.1.0/app/views/ckeditor/shared/_asset_tmpl.html.erb (0.5ms)
+Completed 200 OK in 23ms (Views: 17.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/ckeditor/filebrowser/stylesheets/uploader.css?body=1" for 127.0.0.1 at 2014-07-27 07:14:15 -0700
+
+
+Started GET "/assets/ckeditor/filebrowser/javascripts/jquery.tmpl.min.js?body=1" for 127.0.0.1 at 2014-07-27 07:14:15 -0700
+
+
+Started GET "/assets/ckeditor/filebrowser/javascripts/jquery.min.js?body=1" for 127.0.0.1 at 2014-07-27 07:14:15 -0700
+
+
+Started GET "/assets/ckeditor/application.css?body=1" for 127.0.0.1 at 2014-07-27 07:14:15 -0700
+
+
+Started GET "/assets/ckeditor/filebrowser/javascripts/rails.js?body=1" for 127.0.0.1 at 2014-07-27 07:14:15 -0700
+
+
+Started GET "/assets/ckeditor/filebrowser/javascripts/jquery.endless-scroll.js?body=1" for 127.0.0.1 at 2014-07-27 07:14:15 -0700
+
+
+Started GET "/assets/ckeditor/filebrowser/javascripts/fileuploader.js?body=1" for 127.0.0.1 at 2014-07-27 07:14:15 -0700
+
+
+Started GET "/assets/ckeditor/filebrowser/javascripts/application.js?body=1" for 127.0.0.1 at 2014-07-27 07:14:15 -0700
+
+
+Started GET "/assets/ckeditor/application.js?body=1" for 127.0.0.1 at 2014-07-27 07:14:15 -0700
+
+
+Started GET "/assets/ckeditor/filebrowser/images/gal_add.png" for 127.0.0.1 at 2014-07-27 07:14:15 -0700
+
+
+Started POST "/ckeditor/pictures?qqfile=blog-github.png" for 127.0.0.1 at 2014-07-27 07:14:19 -0700
+Processing by Ckeditor::PicturesController#create as HTML
+  Parameters: {"qqfile"=>"blog-github.png"}
+Command :: file -b --mime '/tmp/3f3c37bc27c376a6d316f7bed76b76491466d5ab20140727-4305-16uvs28'
+Command :: file -b --mime '/tmp/b390097d35d68739a6c40d3cf44491b120140727-4305-1w2tkg5.png'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/b390097d35d68739a6c40d3cf44491b120140727-4305-bxol3s.png[0]' 2>/dev/null
+[paperclip] An error was received while processing: #<Paperclip::Errors::CommandNotFoundError: Could not run the `identify` command. Please install ImageMagick.>
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/b390097d35d68739a6c40d3cf44491b120140727-4305-bxol3s.png[0]' 2>/dev/null
+[paperclip] An error was received while processing: #<Paperclip::Errors::CommandNotFoundError: Could not run the `identify` command. Please install ImageMagick.>
+  [1m[35mUser Load (1.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Command :: file -b --mime '/tmp/b390097d35d68739a6c40d3cf44491b120140727-4305-10mx9dn.png'
+  [1m[35m (0.3ms)[0m  rollback transaction
+  Rendered text template (0.1ms)
+Completed 200 OK in 426ms (Views: 20.0ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/assets/ckeditor/filebrowser/images/preloader.gif" for 127.0.0.1 at 2014-07-27 07:14:20 -0700
+
+
+Started GET "/assets/ckeditor/filebrowser/images/gal_del.png" for 127.0.0.1 at 2014-07-27 07:14:20 -0700
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2014-07-27 07:15:06 -0700
+Processing by ArticlesController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered articles/_form.html.erb (9.0ms)
+  Rendered articles/new.html.erb within layouts/application (11.4ms)
+Completed 200 OK in 43ms (Views: 38.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/ckeditor/plugins/image/images/noimage.png?t=E5OD" for 127.0.0.1 at 2014-07-27 07:15:06 -0700
+
+
+Started GET "/assets/ckeditor/skins/moono/images/lock-open.png" for 127.0.0.1 at 2014-07-27 07:15:06 -0700
+
+
+Started GET "/ckeditor/pictures?CKEditor=article_body&CKEditorFuncNum=1&langCode=en" for 127.0.0.1 at 2014-07-27 07:15:16 -0700
+Processing by Ckeditor::PicturesController#index as HTML
+  Parameters: {"CKEditor"=>"article_body", "CKEditorFuncNum"=>"1", "langCode"=>"en"}
+  [1m[35mCkeditor::Picture Load (0.5ms)[0m  SELECT  "ckeditor_assets".* FROM "ckeditor_assets"  WHERE "ckeditor_assets"."type" IN ('Ckeditor::Picture')  ORDER BY id desc LIMIT 24 OFFSET 0
+  Rendered /var/lib/gems/1.9.1/gems/ckeditor-4.1.0/app/views/ckeditor/shared/_asset.html.erb (0.0ms)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "ckeditor_assets"  WHERE "ckeditor_assets"."type" IN ('Ckeditor::Picture')[0m
+  Rendered /var/lib/gems/1.9.1/gems/ckeditor-4.1.0/app/views/ckeditor/pictures/index.html.erb within layouts/ckeditor/application (8.3ms)
+  Rendered /var/lib/gems/1.9.1/gems/ckeditor-4.1.0/app/views/ckeditor/shared/_asset_tmpl.html.erb (1.1ms)
+Completed 200 OK in 21ms (Views: 17.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/ckeditor/filebrowser/stylesheets/uploader.css?body=1" for 127.0.0.1 at 2014-07-27 07:15:16 -0700
+
+
+Started GET "/assets/ckeditor/filebrowser/javascripts/jquery.endless-scroll.js?body=1" for 127.0.0.1 at 2014-07-27 07:15:16 -0700
+
+
+Started GET "/assets/ckeditor/filebrowser/javascripts/fileuploader.js?body=1" for 127.0.0.1 at 2014-07-27 07:15:16 -0700
+
+
+Started GET "/assets/ckeditor/filebrowser/javascripts/jquery.tmpl.min.js?body=1" for 127.0.0.1 at 2014-07-27 07:15:16 -0700
+
+
+Started GET "/assets/ckeditor/filebrowser/javascripts/jquery.min.js?body=1" for 127.0.0.1 at 2014-07-27 07:15:16 -0700
+
+
+Started GET "/assets/ckeditor/application.css?body=1" for 127.0.0.1 at 2014-07-27 07:15:16 -0700
+
+
+Started GET "/assets/ckeditor/filebrowser/javascripts/application.js?body=1" for 127.0.0.1 at 2014-07-27 07:15:16 -0700
+
+
+Started GET "/assets/ckeditor/application.js?body=1" for 127.0.0.1 at 2014-07-27 07:15:16 -0700
+
+
+Started GET "/assets/ckeditor/filebrowser/javascripts/rails.js?body=1" for 127.0.0.1 at 2014-07-27 07:15:16 -0700
+
+
+Started GET "/assets/ckeditor/filebrowser/images/gal_add.png" for 127.0.0.1 at 2014-07-27 07:15:17 -0700
+
+
+Started POST "/ckeditor/pictures?qqfile=blog-github.png" for 127.0.0.1 at 2014-07-27 07:15:33 -0700
+Processing by Ckeditor::PicturesController#create as HTML
+  Parameters: {"qqfile"=>"blog-github.png"}
+Command :: file -b --mime '/tmp/3f3c37bc27c376a6d316f7bed76b76491466d5ab20140727-4305-1m4ear5'
+Command :: file -b --mime '/tmp/b390097d35d68739a6c40d3cf44491b120140727-4305-w4ybtb.png'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/b390097d35d68739a6c40d3cf44491b120140727-4305-7xeby9.png[0]' 2>/dev/null
+[paperclip] An error was received while processing: #<Paperclip::Errors::CommandNotFoundError: Could not run the `identify` command. Please install ImageMagick.>
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/b390097d35d68739a6c40d3cf44491b120140727-4305-7xeby9.png[0]' 2>/dev/null
+[paperclip] An error was received while processing: #<Paperclip::Errors::CommandNotFoundError: Could not run the `identify` command. Please install ImageMagick.>
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Command :: file -b --mime '/tmp/b390097d35d68739a6c40d3cf44491b120140727-4305-mza58c.png'
+  [1m[35m (0.2ms)[0m  rollback transaction
+  Rendered text template (0.1ms)
+Completed 200 OK in 226ms (Views: 1.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/ckeditor/filebrowser/images/preloader.gif" for 127.0.0.1 at 2014-07-27 07:15:33 -0700
+
+
+Started GET "/assets/ckeditor/filebrowser/images/gal_del.png" for 127.0.0.1 at 2014-07-27 07:15:33 -0700
+
+
+Started DELETE "/ckeditor/assets/0.json" for 127.0.0.1 at 2014-07-27 07:16:30 -0700
+
+ActionController::RoutingError (No route matches [DELETE] "/ckeditor/assets/0.json"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (1.5ms)
+  Rendered /var/lib/gems/1.9.1/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.text.erb (38.3ms)
+
+
+Started POST "/articles" for 127.0.0.1 at 2014-07-27 07:16:51 -0700
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6K44k7rm1SG4QOPU1yWqlsCJ7X0BiIz0vmovM6rL3wY=", "article"=>{"title"=>"My new Article", "body"=>"<p>Compiling CoffeeScript to JavaScript requires a JavaScript runtime and the absence of a runtime will give you an <code>execjs</code> error. Usually Mac OS X and Windows come with a JavaScript runtime installed. Rails adds the <code>therubyracer</code> gem to the generated <code>Gemfile</code> in a commented line for new apps and you can uncomment if you need it. <code>therubyrhino</code> is the recommended runtime for JRuby users and is added by default to the <code>Gemfile</code> in apps generated under JRuby. You can investigate about all the supported runtimes at <a href=\"https://github.com/sstephenson/execjs#readme\">ExecJS</a>.</p>\r\n\r\n<p>&nbsp;</p>\r\n", "attachment"=>#<ActionDispatch::Http::UploadedFile:0x9203a38 @tempfile=#<File:/tmp/RackMultipart20140727-4305-130vijv>, @original_filename="blog-github.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"article[attachment]\"; filename=\"blog-github.png\"\r\nContent-Type: image/png\r\n">, "tag_list"=>"Ruby"}, "commit"=>"Create Article"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+Command :: file -b --mime '/tmp/b390097d35d68739a6c40d3cf44491b120140727-4305-180263l.png'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/b390097d35d68739a6c40d3cf44491b120140727-4305-1ajrvqm.png[0]' 2>/dev/null
+[paperclip] An error was received while processing: #<Paperclip::Errors::CommandNotFoundError: Could not run the `identify` command. Please install ImageMagick.>
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/b390097d35d68739a6c40d3cf44491b120140727-4305-1ajrvqm.png[0]' 2>/dev/null
+[paperclip] An error was received while processing: #<Paperclip::Errors::CommandNotFoundError: Could not run the `identify` command. Please install ImageMagick.>
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/b390097d35d68739a6c40d3cf44491b120140727-4305-1ajrvqm.png[0]' 2>/dev/null
+[paperclip] An error was received while processing: #<Paperclip::Errors::CommandNotFoundError: Could not run the `identify` command. Please install ImageMagick.>
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/b390097d35d68739a6c40d3cf44491b120140727-4305-1ajrvqm.png[0]' 2>/dev/null
+[paperclip] An error was received while processing: #<Paperclip::Errors::CommandNotFoundError: Could not run the `identify` command. Please install ImageMagick.>
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/b390097d35d68739a6c40d3cf44491b120140727-4305-1ajrvqm.png[0]' 2>/dev/null
+[paperclip] An error was received while processing: #<Paperclip::Errors::CommandNotFoundError: Could not run the `identify` command. Please install ImageMagick.>
+  [1m[35m (0.3ms)[0m  begin transaction
+Command :: file -b --mime '/tmp/b390097d35d68739a6c40d3cf44491b120140727-4305-tcehas.png'
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  Rendered articles/_form.html.erb (13.8ms)
+  Rendered articles/new.html.erb within layouts/application (14.9ms)
+Completed 200 OK in 351ms (Views: 30.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-07-27 07:16:52 -0700
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2014-07-27 07:16:52 -0700
+
+
+Started GET "/assets/androidblog.css?body=1" for 127.0.0.1 at 2014-07-27 07:16:52 -0700
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-07-27 07:16:52 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-27 07:16:52 -0700
+
+
+Started GET "/assets/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2014-07-27 07:16:52 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-27 07:16:52 -0700
+
+
+Started GET "/assets/vendor/modernizr.js?body=1" for 127.0.0.1 at 2014-07-27 07:16:52 -0700
+
+
+Started GET "/assets/foundation/foundation.abide.js?body=1" for 127.0.0.1 at 2014-07-27 07:16:52 -0700
+
+
+Started GET "/assets/foundation/foundation.accordion.js?body=1" for 127.0.0.1 at 2014-07-27 07:16:52 -0700
+
+
+Started GET "/assets/foundation/foundation.js?body=1" for 127.0.0.1 at 2014-07-27 07:16:52 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-27 07:16:52 -0700
+
+
+Started GET "/assets/foundation/foundation.alert.js?body=1" for 127.0.0.1 at 2014-07-27 07:16:52 -0700
+
+
+Started GET "/assets/foundation/foundation.joyride.js?body=1" for 127.0.0.1 at 2014-07-27 07:16:52 -0700
+
+
+Started GET "/assets/foundation/foundation.interchange.js?body=1" for 127.0.0.1 at 2014-07-27 07:16:52 -0700
+
+
+Started GET "/assets/foundation/foundation.dropdown.js?body=1" for 127.0.0.1 at 2014-07-27 07:16:52 -0700
+
+
+Started GET "/assets/foundation/foundation.clearing.js?body=1" for 127.0.0.1 at 2014-07-27 07:16:52 -0700
+
+
+Started GET "/assets/foundation/foundation.magellan.js?body=1" for 127.0.0.1 at 2014-07-27 07:16:52 -0700
+
+
+Started GET "/assets/foundation/foundation.offcanvas.js?body=1" for 127.0.0.1 at 2014-07-27 07:16:52 -0700
+
+
+Started GET "/assets/foundation/foundation.reveal.js?body=1" for 127.0.0.1 at 2014-07-27 07:16:52 -0700
+
+
+Started GET "/assets/foundation/foundation.slider.js?body=1" for 127.0.0.1 at 2014-07-27 07:16:52 -0700
+
+
+Started GET "/assets/foundation/foundation.orbit.js?body=1" for 127.0.0.1 at 2014-07-27 07:16:52 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-27 07:16:52 -0700
+
+
+Started GET "/assets/foundation.js?body=1" for 127.0.0.1 at 2014-07-27 07:16:52 -0700
+
+
+Started GET "/assets/foundation/foundation.equalizer.js?body=1" for 127.0.0.1 at 2014-07-27 07:16:52 -0700
+
+
+Started GET "/assets/foundation/foundation.topbar.js?body=1" for 127.0.0.1 at 2014-07-27 07:16:52 -0700
+
+
+Started GET "/assets/foundation/foundation.tooltip.js?body=1" for 127.0.0.1 at 2014-07-27 07:16:52 -0700
+
+
+Started GET "/assets/foundation/foundation.tab.js?body=1" for 127.0.0.1 at 2014-07-27 07:16:52 -0700
+
+
+Started GET "/assets/androidblog.js?body=1" for 127.0.0.1 at 2014-07-27 07:16:52 -0700
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-07-27 07:16:52 -0700
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2014-07-27 07:16:52 -0700
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-07-27 07:16:52 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-27 07:16:52 -0700
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2014-07-27 07:16:52 -0700
+
+
+Started GET "/assets/ckeditor/config.js?t=E5OD" for 127.0.0.1 at 2014-07-27 07:16:52 -0700
+
+
+Started GET "/assets/ckeditor/skins/moono/editor_gecko.css?t=E5OD" for 127.0.0.1 at 2014-07-27 07:16:53 -0700
+
+
+Started GET "/assets/ckeditor/lang/en.js?t=E5OD" for 127.0.0.1 at 2014-07-27 07:16:53 -0700
+
+
+Started GET "/assets/ckeditor/styles.js?t=E5OD" for 127.0.0.1 at 2014-07-27 07:16:53 -0700
+
+
+Started GET "/assets/ckeditor/skins/moono/icons.png" for 127.0.0.1 at 2014-07-27 07:16:53 -0700
+
+
+Started GET "/assets/ckeditor/contents.css?t=E5OD" for 127.0.0.1 at 2014-07-27 07:16:53 -0700
+
+
+Started POST "/articles" for 127.0.0.1 at 2014-07-27 07:17:24 -0700
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6K44k7rm1SG4QOPU1yWqlsCJ7X0BiIz0vmovM6rL3wY=", "article"=>{"title"=>"My new Article", "body"=>"<p>Compiling CoffeeScript to JavaScript requires a JavaScript runtime and the absence of a runtime will give you an <code>execjs</code> error. Usually Mac OS X and Windows come with a JavaScript runtime installed. Rails adds the <code>therubyracer</code> gem to the generated <code>Gemfile</code> in a commented line for new apps and you can uncomment if you need it. <code>therubyrhino</code> is the recommended runtime for JRuby users and is added by default to the <code>Gemfile</code> in apps generated under JRuby. You can investigate about all the supported runtimes at <a href=\"https://github.com/sstephenson/execjs#readme\">ExecJS</a>.</p>\r\n\r\n<p>&nbsp;</p>\r\n", "attachment"=>#<ActionDispatch::Http::UploadedFile:0xb6300618 @tempfile=#<File:/tmp/RackMultipart20140727-4305-1q3k5vt>, @original_filename="blog-github.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"article[attachment]\"; filename=\"blog-github.png\"\r\nContent-Type: image/png\r\n">, "tag_list"=>"Ruby"}, "commit"=>"Create Article"}
+  [1m[35mUser Load (1.9ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+Command :: file -b --mime '/tmp/b390097d35d68739a6c40d3cf44491b120140727-4305-pixhy5.png'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/b390097d35d68739a6c40d3cf44491b120140727-4305-1hmsrmd.png[0]' 2>/dev/null
+[paperclip] An error was received while processing: #<Paperclip::Errors::CommandNotFoundError: Could not run the `identify` command. Please install ImageMagick.>
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/b390097d35d68739a6c40d3cf44491b120140727-4305-1hmsrmd.png[0]' 2>/dev/null
+[paperclip] An error was received while processing: #<Paperclip::Errors::CommandNotFoundError: Could not run the `identify` command. Please install ImageMagick.>
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/b390097d35d68739a6c40d3cf44491b120140727-4305-1hmsrmd.png[0]' 2>/dev/null
+[paperclip] An error was received while processing: #<Paperclip::Errors::CommandNotFoundError: Could not run the `identify` command. Please install ImageMagick.>
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/b390097d35d68739a6c40d3cf44491b120140727-4305-1hmsrmd.png[0]' 2>/dev/null
+[paperclip] An error was received while processing: #<Paperclip::Errors::CommandNotFoundError: Could not run the `identify` command. Please install ImageMagick.>
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/b390097d35d68739a6c40d3cf44491b120140727-4305-1hmsrmd.png[0]' 2>/dev/null
+[paperclip] An error was received while processing: #<Paperclip::Errors::CommandNotFoundError: Could not run the `identify` command. Please install ImageMagick.>
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+Command :: file -b --mime '/tmp/b390097d35d68739a6c40d3cf44491b120140727-4305-1b0fvgh.png'
+  [1m[35m (0.2ms)[0m  rollback transaction
+  Rendered articles/_form.html.erb (16.0ms)
+  Rendered articles/new.html.erb within layouts/application (17.5ms)
+Completed 200 OK in 373ms (Views: 39.4ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/assets/androidblog.css?body=1" for 127.0.0.1 at 2014-07-27 07:17:24 -0700
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2014-07-27 07:17:24 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-27 07:17:24 -0700
+
+
+Started GET "/assets/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2014-07-27 07:17:24 -0700
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-07-27 07:17:24 -0700
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-07-27 07:17:24 -0700
+
+
+Started GET "/assets/foundation/foundation.js?body=1" for 127.0.0.1 at 2014-07-27 07:17:24 -0700
+
+
+Started GET "/assets/foundation/foundation.abide.js?body=1" for 127.0.0.1 at 2014-07-27 07:17:24 -0700
+
+
+Started GET "/assets/foundation/foundation.accordion.js?body=1" for 127.0.0.1 at 2014-07-27 07:17:24 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-27 07:17:24 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-27 07:17:24 -0700
+
+
+Started GET "/assets/vendor/modernizr.js?body=1" for 127.0.0.1 at 2014-07-27 07:17:24 -0700
+
+
+Started GET "/assets/foundation/foundation.clearing.js?body=1" for 127.0.0.1 at 2014-07-27 07:17:24 -0700
+
+
+Started GET "/assets/foundation/foundation.interchange.js?body=1" for 127.0.0.1 at 2014-07-27 07:17:24 -0700
+
+
+Started GET "/assets/foundation/foundation.joyride.js?body=1" for 127.0.0.1 at 2014-07-27 07:17:24 -0700
+
+
+Started GET "/assets/foundation/foundation.magellan.js?body=1" for 127.0.0.1 at 2014-07-27 07:17:24 -0700
+
+
+Started GET "/assets/foundation/foundation.dropdown.js?body=1" for 127.0.0.1 at 2014-07-27 07:17:24 -0700
+
+
+Started GET "/assets/foundation/foundation.alert.js?body=1" for 127.0.0.1 at 2014-07-27 07:17:24 -0700
+
+
+Started GET "/assets/foundation/foundation.offcanvas.js?body=1" for 127.0.0.1 at 2014-07-27 07:17:24 -0700
+
+
+Started GET "/assets/foundation/foundation.slider.js?body=1" for 127.0.0.1 at 2014-07-27 07:17:24 -0700
+
+
+Started GET "/assets/foundation/foundation.tab.js?body=1" for 127.0.0.1 at 2014-07-27 07:17:24 -0700
+
+
+Started GET "/assets/foundation/foundation.tooltip.js?body=1" for 127.0.0.1 at 2014-07-27 07:17:24 -0700
+
+
+Started GET "/assets/foundation/foundation.orbit.js?body=1" for 127.0.0.1 at 2014-07-27 07:17:24 -0700
+
+
+Started GET "/assets/foundation/foundation.reveal.js?body=1" for 127.0.0.1 at 2014-07-27 07:17:24 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-27 07:17:24 -0700
+
+
+Started GET "/assets/foundation/foundation.equalizer.js?body=1" for 127.0.0.1 at 2014-07-27 07:17:24 -0700
+
+
+Started GET "/assets/foundation/foundation.topbar.js?body=1" for 127.0.0.1 at 2014-07-27 07:17:24 -0700
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-07-27 07:17:24 -0700
+
+
+Started GET "/assets/foundation.js?body=1" for 127.0.0.1 at 2014-07-27 07:17:24 -0700
+
+
+Started GET "/assets/androidblog.js?body=1" for 127.0.0.1 at 2014-07-27 07:17:24 -0700
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2014-07-27 07:17:24 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-27 07:17:25 -0700
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-07-27 07:17:25 -0700
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2014-07-27 07:17:25 -0700
+
+
+Started GET "/assets/ckeditor/config.js?t=E5OD" for 127.0.0.1 at 2014-07-27 07:17:25 -0700
+
+
+Started GET "/assets/ckeditor/skins/moono/editor_gecko.css?t=E5OD" for 127.0.0.1 at 2014-07-27 07:17:25 -0700
+
+
+Started GET "/assets/ckeditor/lang/en.js?t=E5OD" for 127.0.0.1 at 2014-07-27 07:17:25 -0700
+
+
+Started GET "/assets/ckeditor/styles.js?t=E5OD" for 127.0.0.1 at 2014-07-27 07:17:25 -0700
+
+
+Started GET "/assets/ckeditor/skins/moono/icons.png" for 127.0.0.1 at 2014-07-27 07:17:25 -0700
+
+
+Started GET "/assets/ckeditor/contents.css?t=E5OD" for 127.0.0.1 at 2014-07-27 07:17:25 -0700
+
+
+Started POST "/articles" for 127.0.0.1 at 2014-07-27 07:19:04 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6K44k7rm1SG4QOPU1yWqlsCJ7X0BiIz0vmovM6rL3wY=", "article"=>{"title"=>"My new Article", "body"=>"<p>Compiling CoffeeScript to JavaScript requires a JavaScript runtime and the absence of a runtime will give you an <code>execjs</code> error. Usually Mac OS X and Windows come with a JavaScript runtime installed. Rails adds the <code>therubyracer</code> gem to the generated <code>Gemfile</code> in a commented line for new apps and you can uncomment if you need it. <code>therubyrhino</code> is the recommended runtime for JRuby users and is added by default to the <code>Gemfile</code> in apps generated under JRuby. You can investigate about all the supported runtimes at <a href=\"https://github.com/sstephenson/execjs#readme\">ExecJS</a>.</p>\r\n\r\n<p>&nbsp;</p>\r\n", "attachment"=>#<ActionDispatch::Http::UploadedFile:0xa8be6c4 @tempfile=#<File:/tmp/RackMultipart20140727-4662-gknidn>, @original_filename="blog-github.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"article[attachment]\"; filename=\"blog-github.png\"\r\nContent-Type: image/png\r\n">, "tag_list"=>"Ruby"}, "commit"=>"Create Article"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+Completed 500 Internal Server Error in 105ms
+
+NoMethodError - undefined method `has_attached_file' for #<Class:0xabc7b68>:
+  activerecord (4.1.4) lib/active_record/dynamic_matchers.rb:26:in `method_missing'
+  app/models/article.rb:5:in `<class:Article>'
+  app/models/article.rb:1:in `<top (required)>'
+  activesupport (4.1.4) lib/active_support/dependencies.rb:443:in `block in load_file'
+  activesupport (4.1.4) lib/active_support/dependencies.rb:633:in `new_constants_in'
+  activesupport (4.1.4) lib/active_support/dependencies.rb:442:in `load_file'
+  activesupport (4.1.4) lib/active_support/dependencies.rb:342:in `require_or_load'
+  activesupport (4.1.4) lib/active_support/dependencies.rb:480:in `load_missing_constant'
+  activesupport (4.1.4) lib/active_support/dependencies.rb:180:in `const_missing'
+  activesupport (4.1.4) lib/active_support/dependencies.rb:512:in `load_missing_constant'
+  activesupport (4.1.4) lib/active_support/dependencies.rb:180:in `const_missing'
+  app/controllers/articles_controller.rb:9:in `create'
+  actionpack (4.1.4) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.1.4) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.1.4) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.1.4) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.4) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.4) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.4) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.4) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.4) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.4) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.4) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.4) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.4) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.4) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.4) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.4) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.4) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.4) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.4) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.1.4) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:678:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.4) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.4) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.4) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:56:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/90235490/variables" for 127.0.0.1 at 2014-07-27 07:19:05 -0700
+  [1m[36mArticle Load (0.2ms)[0m  [1mSELECT "articles".* FROM "articles"[0m
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2014-07-27 07:19:13 -0700
+Processing by ArticlesController#new as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+Completed 500 Internal Server Error in 5ms
+
+NoMethodError - undefined method `has_attached_file' for #<Class:0xb3c0040>:
+  activerecord (4.1.4) lib/active_record/dynamic_matchers.rb:26:in `method_missing'
+  app/models/article.rb:5:in `<class:Article>'
+  app/models/article.rb:1:in `<top (required)>'
+  activesupport (4.1.4) lib/active_support/dependencies.rb:443:in `block in load_file'
+  activesupport (4.1.4) lib/active_support/dependencies.rb:633:in `new_constants_in'
+  activesupport (4.1.4) lib/active_support/dependencies.rb:442:in `load_file'
+  activesupport (4.1.4) lib/active_support/dependencies.rb:342:in `require_or_load'
+  activesupport (4.1.4) lib/active_support/dependencies.rb:480:in `load_missing_constant'
+  activesupport (4.1.4) lib/active_support/dependencies.rb:180:in `const_missing'
+  activesupport (4.1.4) lib/active_support/dependencies.rb:512:in `load_missing_constant'
+  activesupport (4.1.4) lib/active_support/dependencies.rb:180:in `const_missing'
+  app/controllers/articles_controller.rb:5:in `new'
+  actionpack (4.1.4) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.1.4) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.1.4) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.1.4) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.4) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.4) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.4) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.4) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.4) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.4) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.4) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.4) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.4) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.4) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.4) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.4) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.4) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.4) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.4) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.1.4) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:678:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.4) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.4) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.4) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:56:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/94208590/variables" for 127.0.0.1 at 2014-07-27 07:19:13 -0700
+  [1m[36mArticle Load (0.2ms)[0m  [1mSELECT "articles".* FROM "articles"[0m
+
+
+Started GET "/articles/" for 127.0.0.1 at 2014-07-27 07:19:20 -0700
+Processing by ArticlesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+Completed 500 Internal Server Error in 15ms
+
+NoMethodError - undefined method `has_attached_file' for #<Class:0xb8add64>:
+  activerecord (4.1.4) lib/active_record/dynamic_matchers.rb:26:in `method_missing'
+  app/models/article.rb:5:in `<class:Article>'
+  app/models/article.rb:1:in `<top (required)>'
+  activesupport (4.1.4) lib/active_support/dependencies.rb:443:in `block in load_file'
+  activesupport (4.1.4) lib/active_support/dependencies.rb:633:in `new_constants_in'
+  activesupport (4.1.4) lib/active_support/dependencies.rb:442:in `load_file'
+  activesupport (4.1.4) lib/active_support/dependencies.rb:342:in `require_or_load'
+  activesupport (4.1.4) lib/active_support/dependencies.rb:480:in `load_missing_constant'
+  activesupport (4.1.4) lib/active_support/dependencies.rb:180:in `const_missing'
+  activesupport (4.1.4) lib/active_support/dependencies.rb:512:in `load_missing_constant'
+  activesupport (4.1.4) lib/active_support/dependencies.rb:180:in `const_missing'
+  app/controllers/articles_controller.rb:24:in `index'
+  actionpack (4.1.4) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.1.4) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.1.4) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.1.4) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.4) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.4) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.4) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.4) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.4) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.4) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.4) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.4) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.4) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.4) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.4) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.4) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.4) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.4) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.4) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.1.4) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:678:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.4) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.4) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.4) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:56:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/96827040/variables" for 127.0.0.1 at 2014-07-27 07:19:20 -0700
+  [1m[36mArticle Load (0.4ms)[0m  [1mSELECT "articles".* FROM "articles"[0m
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-27 07:19:25 -0700
+Processing by AndroidblogController#index as HTML
+Completed 500 Internal Server Error in 8ms
+
+NoMethodError - undefined method `has_attached_file' for #<Class:0xb935ac0>:
+  activerecord (4.1.4) lib/active_record/dynamic_matchers.rb:26:in `method_missing'
+  app/models/article.rb:5:in `<class:Article>'
+  app/models/article.rb:1:in `<top (required)>'
+  activesupport (4.1.4) lib/active_support/dependencies.rb:443:in `block in load_file'
+  activesupport (4.1.4) lib/active_support/dependencies.rb:633:in `new_constants_in'
+  activesupport (4.1.4) lib/active_support/dependencies.rb:442:in `load_file'
+  activesupport (4.1.4) lib/active_support/dependencies.rb:342:in `require_or_load'
+  activesupport (4.1.4) lib/active_support/dependencies.rb:480:in `load_missing_constant'
+  activesupport (4.1.4) lib/active_support/dependencies.rb:180:in `const_missing'
+  activesupport (4.1.4) lib/active_support/dependencies.rb:512:in `load_missing_constant'
+  activesupport (4.1.4) lib/active_support/dependencies.rb:180:in `const_missing'
+  app/controllers/androidblog_controller.rb:9:in `index'
+  actionpack (4.1.4) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.1.4) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.1.4) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.1.4) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.4) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.4) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.4) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.4) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.4) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.4) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.4) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.4) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.4) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.4) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.4) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.4) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.4) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.4) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.4) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.1.4) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.4) lib/action_dispatch/routing/route_set.rb:678:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.4) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.4) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.4) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.4) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (1.1.0) lib/better_errors/middleware.rb:56:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /usr/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /usr/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/97105310/variables" for 127.0.0.1 at 2014-07-27 07:19:25 -0700
+  [1m[35mArticle Load (0.2ms)[0m  SELECT "articles".* FROM "articles"
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-27 07:20:40 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by AndroidblogController#index as HTML
+  [1m[35mArticle Load (0.3ms)[0m  SELECT  "articles".* FROM "articles"  LIMIT 10 OFFSET 0
+  Rendered androidblog/index.html.erb within layouts/application (28.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 464ms (Views: 324.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-07-27 07:20:40 -0700
+
+
+Started GET "/assets/androidblog.css?body=1" for 127.0.0.1 at 2014-07-27 07:20:40 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-27 07:20:40 -0700
+
+
+Started GET "/assets/vendor/modernizr.js?body=1" for 127.0.0.1 at 2014-07-27 07:20:40 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-27 07:20:40 -0700
+
+
+Started GET "/assets/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2014-07-27 07:20:40 -0700
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-07-27 07:20:40 -0700
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2014-07-27 07:20:40 -0700
+
+
+Started GET "/assets/foundation/foundation.js?body=1" for 127.0.0.1 at 2014-07-27 07:20:41 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-27 07:20:41 -0700
+
+
+Started GET "/assets/foundation/foundation.abide.js?body=1" for 127.0.0.1 at 2014-07-27 07:20:41 -0700
+
+
+Started GET "/assets/foundation/foundation.accordion.js?body=1" for 127.0.0.1 at 2014-07-27 07:20:41 -0700
+
+
+Started GET "/assets/foundation/foundation.alert.js?body=1" for 127.0.0.1 at 2014-07-27 07:20:41 -0700
+
+
+Started GET "/assets/foundation/foundation.clearing.js?body=1" for 127.0.0.1 at 2014-07-27 07:20:41 -0700
+
+
+Started GET "/assets/foundation/foundation.dropdown.js?body=1" for 127.0.0.1 at 2014-07-27 07:20:41 -0700
+
+
+Started GET "/assets/foundation/foundation.interchange.js?body=1" for 127.0.0.1 at 2014-07-27 07:20:41 -0700
+
+
+Started GET "/assets/foundation/foundation.joyride.js?body=1" for 127.0.0.1 at 2014-07-27 07:20:41 -0700
+
+
+Started GET "/assets/foundation/foundation.magellan.js?body=1" for 127.0.0.1 at 2014-07-27 07:20:41 -0700
+
+
+Started GET "/assets/foundation/foundation.offcanvas.js?body=1" for 127.0.0.1 at 2014-07-27 07:20:41 -0700
+
+
+Started GET "/assets/foundation/foundation.orbit.js?body=1" for 127.0.0.1 at 2014-07-27 07:20:41 -0700
+
+
+Started GET "/assets/foundation/foundation.reveal.js?body=1" for 127.0.0.1 at 2014-07-27 07:20:41 -0700
+
+
+Started GET "/assets/foundation/foundation.slider.js?body=1" for 127.0.0.1 at 2014-07-27 07:20:41 -0700
+
+
+Started GET "/assets/foundation/foundation.tab.js?body=1" for 127.0.0.1 at 2014-07-27 07:20:41 -0700
+
+
+Started GET "/assets/foundation/foundation.tooltip.js?body=1" for 127.0.0.1 at 2014-07-27 07:20:41 -0700
+
+
+Started GET "/assets/foundation/foundation.topbar.js?body=1" for 127.0.0.1 at 2014-07-27 07:20:41 -0700
+
+
+Started GET "/assets/foundation/foundation.equalizer.js?body=1" for 127.0.0.1 at 2014-07-27 07:20:41 -0700
+
+
+Started GET "/assets/foundation.js?body=1" for 127.0.0.1 at 2014-07-27 07:20:41 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-27 07:20:41 -0700
+
+
+Started GET "/assets/androidblog.js?body=1" for 127.0.0.1 at 2014-07-27 07:20:41 -0700
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-07-27 07:20:41 -0700
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2014-07-27 07:20:41 -0700
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-07-27 07:20:41 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-27 07:20:41 -0700
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2014-07-27 07:20:41 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-27 07:20:47 -0700
+Processing by AndroidblogController#index as HTML
+  [1m[35mArticle Load (0.3ms)[0m  SELECT  "articles".* FROM "articles"  LIMIT 10 OFFSET 0
+  Rendered androidblog/index.html.erb within layouts/application (2.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 17ms (Views: 15.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2014-07-27 07:20:57 -0700
+Processing by ArticlesController#new as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  Rendered articles/_form.html.erb (173.5ms)
+  Rendered articles/new.html.erb within layouts/application (178.1ms)
+Completed 200 OK in 199ms (Views: 189.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-07-27 07:20:57 -0700
+
+
+Started GET "/assets/androidblog.css?body=1" for 127.0.0.1 at 2014-07-27 07:20:57 -0700
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2014-07-27 07:20:57 -0700
+
+
+Started GET "/assets/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2014-07-27 07:20:57 -0700
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-07-27 07:20:57 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-27 07:20:57 -0700
+
+
+Started GET "/assets/foundation/foundation.js?body=1" for 127.0.0.1 at 2014-07-27 07:20:57 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-27 07:20:57 -0700
+
+
+Started GET "/assets/foundation/foundation.abide.js?body=1" for 127.0.0.1 at 2014-07-27 07:20:57 -0700
+
+
+Started GET "/assets/vendor/modernizr.js?body=1" for 127.0.0.1 at 2014-07-27 07:20:57 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-27 07:20:57 -0700
+
+
+Started GET "/assets/foundation/foundation.alert.js?body=1" for 127.0.0.1 at 2014-07-27 07:20:57 -0700
+
+
+Started GET "/assets/foundation/foundation.dropdown.js?body=1" for 127.0.0.1 at 2014-07-27 07:20:57 -0700
+
+
+Started GET "/assets/foundation/foundation.accordion.js?body=1" for 127.0.0.1 at 2014-07-27 07:20:57 -0700
+
+
+Started GET "/assets/foundation/foundation.clearing.js?body=1" for 127.0.0.1 at 2014-07-27 07:20:57 -0700
+
+
+Started GET "/assets/foundation/foundation.interchange.js?body=1" for 127.0.0.1 at 2014-07-27 07:20:57 -0700
+
+
+Started GET "/assets/foundation/foundation.joyride.js?body=1" for 127.0.0.1 at 2014-07-27 07:20:57 -0700
+
+
+Started GET "/assets/foundation/foundation.magellan.js?body=1" for 127.0.0.1 at 2014-07-27 07:20:57 -0700
+
+
+Started GET "/assets/foundation/foundation.reveal.js?body=1" for 127.0.0.1 at 2014-07-27 07:20:57 -0700
+
+
+Started GET "/assets/foundation/foundation.offcanvas.js?body=1" for 127.0.0.1 at 2014-07-27 07:20:57 -0700
+
+
+Started GET "/assets/foundation/foundation.orbit.js?body=1" for 127.0.0.1 at 2014-07-27 07:20:57 -0700
+
+
+Started GET "/assets/foundation/foundation.slider.js?body=1" for 127.0.0.1 at 2014-07-27 07:20:57 -0700
+
+
+Started GET "/assets/foundation/foundation.tab.js?body=1" for 127.0.0.1 at 2014-07-27 07:20:57 -0700
+
+
+Started GET "/assets/foundation/foundation.tooltip.js?body=1" for 127.0.0.1 at 2014-07-27 07:20:57 -0700
+
+
+Started GET "/assets/foundation/foundation.topbar.js?body=1" for 127.0.0.1 at 2014-07-27 07:20:57 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-27 07:20:57 -0700
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-07-27 07:20:57 -0700
+
+
+Started GET "/assets/foundation.js?body=1" for 127.0.0.1 at 2014-07-27 07:20:57 -0700
+
+
+Started GET "/assets/foundation/foundation.equalizer.js?body=1" for 127.0.0.1 at 2014-07-27 07:20:57 -0700
+
+
+Started GET "/assets/androidblog.js?body=1" for 127.0.0.1 at 2014-07-27 07:20:57 -0700
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2014-07-27 07:20:57 -0700
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-07-27 07:20:57 -0700
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2014-07-27 07:20:57 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-27 07:20:57 -0700
+
+
+Started GET "/assets/ckeditor/config.js?t=E5OD" for 127.0.0.1 at 2014-07-27 07:20:58 -0700
+
+
+Started GET "/assets/ckeditor/skins/moono/editor_gecko.css?t=E5OD" for 127.0.0.1 at 2014-07-27 07:20:58 -0700
+
+
+Started GET "/assets/ckeditor/lang/en.js?t=E5OD" for 127.0.0.1 at 2014-07-27 07:20:58 -0700
+
+
+Started GET "/assets/ckeditor/styles.js?t=E5OD" for 127.0.0.1 at 2014-07-27 07:20:58 -0700
+
+
+Started GET "/assets/ckeditor/skins/moono/icons.png" for 127.0.0.1 at 2014-07-27 07:20:58 -0700
+
+
+Started GET "/assets/ckeditor/contents.css?t=E5OD" for 127.0.0.1 at 2014-07-27 07:20:58 -0700
+
+
+Started POST "/articles" for 127.0.0.1 at 2014-07-27 07:21:12 -0700
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6K44k7rm1SG4QOPU1yWqlsCJ7X0BiIz0vmovM6rL3wY=", "article"=>{"title"=>"My new Article", "body"=>"<p>, group: :production</p>\r\n", "attachment"=>#<ActionDispatch::Http::UploadedFile:0xb655e7d4 @tempfile=#<File:/tmp/RackMultipart20140727-4698-1ahh6a1>, @original_filename="blog-github.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"article[attachment]\"; filename=\"blog-github.png\"\r\nContent-Type: image/png\r\n">, "tag_list"=>"Ruby"}, "commit"=>"Create Article"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+Command :: file -b --mime '/tmp/b390097d35d68739a6c40d3cf44491b120140727-4698-o8vsv7.png'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/b390097d35d68739a6c40d3cf44491b120140727-4698-1swh442.png[0]' 2>/dev/null
+[paperclip] An error was received while processing: #<Paperclip::Errors::CommandNotFoundError: Could not run the `identify` command. Please install ImageMagick.>
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/b390097d35d68739a6c40d3cf44491b120140727-4698-1swh442.png[0]' 2>/dev/null
+[paperclip] An error was received while processing: #<Paperclip::Errors::CommandNotFoundError: Could not run the `identify` command. Please install ImageMagick.>
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/b390097d35d68739a6c40d3cf44491b120140727-4698-1swh442.png[0]' 2>/dev/null
+[paperclip] An error was received while processing: #<Paperclip::Errors::CommandNotFoundError: Could not run the `identify` command. Please install ImageMagick.>
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/b390097d35d68739a6c40d3cf44491b120140727-4698-1swh442.png[0]' 2>/dev/null
+[paperclip] An error was received while processing: #<Paperclip::Errors::CommandNotFoundError: Could not run the `identify` command. Please install ImageMagick.>
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/b390097d35d68739a6c40d3cf44491b120140727-4698-1swh442.png[0]' 2>/dev/null
+[paperclip] An error was received while processing: #<Paperclip::Errors::CommandNotFoundError: Could not run the `identify` command. Please install ImageMagick.>
+  [1m[35m (0.9ms)[0m  begin transaction
+Command :: file -b --mime '/tmp/b390097d35d68739a6c40d3cf44491b120140727-4698-1nv577s.png'
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  Rendered articles/_form.html.erb (17.2ms)
+  Rendered articles/new.html.erb within layouts/application (19.6ms)
+Completed 200 OK in 653ms (Views: 39.5ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-07-27 07:21:13 -0700
+
+
+Started GET "/assets/androidblog.css?body=1" for 127.0.0.1 at 2014-07-27 07:21:13 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-27 07:21:13 -0700
+
+
+Started GET "/assets/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2014-07-27 07:21:13 -0700
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-07-27 07:21:13 -0700
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2014-07-27 07:21:13 -0700
+
+
+Started GET "/assets/vendor/modernizr.js?body=1" for 127.0.0.1 at 2014-07-27 07:21:13 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-27 07:21:13 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-27 07:21:13 -0700
+
+
+Started GET "/assets/foundation/foundation.abide.js?body=1" for 127.0.0.1 at 2014-07-27 07:21:13 -0700
+
+
+Started GET "/assets/foundation/foundation.accordion.js?body=1" for 127.0.0.1 at 2014-07-27 07:21:13 -0700
+
+
+Started GET "/assets/foundation/foundation.js?body=1" for 127.0.0.1 at 2014-07-27 07:21:13 -0700
+
+
+Started GET "/assets/foundation/foundation.joyride.js?body=1" for 127.0.0.1 at 2014-07-27 07:21:13 -0700
+
+
+Started GET "/assets/foundation/foundation.magellan.js?body=1" for 127.0.0.1 at 2014-07-27 07:21:13 -0700
+
+
+Started GET "/assets/foundation/foundation.alert.js?body=1" for 127.0.0.1 at 2014-07-27 07:21:13 -0700
+
+
+Started GET "/assets/foundation/foundation.clearing.js?body=1" for 127.0.0.1 at 2014-07-27 07:21:13 -0700
+
+
+Started GET "/assets/foundation/foundation.interchange.js?body=1" for 127.0.0.1 at 2014-07-27 07:21:13 -0700
+
+
+Started GET "/assets/foundation/foundation.dropdown.js?body=1" for 127.0.0.1 at 2014-07-27 07:21:13 -0700
+
+
+Started GET "/assets/foundation/foundation.reveal.js?body=1" for 127.0.0.1 at 2014-07-27 07:21:13 -0700
+
+
+Started GET "/assets/foundation/foundation.slider.js?body=1" for 127.0.0.1 at 2014-07-27 07:21:13 -0700
+
+
+Started GET "/assets/foundation/foundation.tab.js?body=1" for 127.0.0.1 at 2014-07-27 07:21:13 -0700
+
+
+Started GET "/assets/foundation/foundation.tooltip.js?body=1" for 127.0.0.1 at 2014-07-27 07:21:13 -0700
+
+
+Started GET "/assets/foundation/foundation.offcanvas.js?body=1" for 127.0.0.1 at 2014-07-27 07:21:13 -0700
+
+
+Started GET "/assets/foundation/foundation.orbit.js?body=1" for 127.0.0.1 at 2014-07-27 07:21:13 -0700
+
+
+Started GET "/assets/foundation.js?body=1" for 127.0.0.1 at 2014-07-27 07:21:13 -0700
+
+
+Started GET "/assets/foundation/foundation.equalizer.js?body=1" for 127.0.0.1 at 2014-07-27 07:21:13 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-27 07:21:13 -0700
+
+
+Started GET "/assets/foundation/foundation.topbar.js?body=1" for 127.0.0.1 at 2014-07-27 07:21:13 -0700
+
+
+Started GET "/assets/androidblog.js?body=1" for 127.0.0.1 at 2014-07-27 07:21:13 -0700
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-07-27 07:21:13 -0700
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2014-07-27 07:21:13 -0700
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2014-07-27 07:21:13 -0700
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-07-27 07:21:13 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-27 07:21:13 -0700
+
+
+Started GET "/assets/ckeditor/config.js?t=E5OD" for 127.0.0.1 at 2014-07-27 07:21:13 -0700
+
+
+Started GET "/assets/ckeditor/skins/moono/editor_gecko.css?t=E5OD" for 127.0.0.1 at 2014-07-27 07:21:14 -0700
+
+
+Started GET "/assets/ckeditor/lang/en.js?t=E5OD" for 127.0.0.1 at 2014-07-27 07:21:14 -0700
+
+
+Started GET "/assets/ckeditor/styles.js?t=E5OD" for 127.0.0.1 at 2014-07-27 07:21:14 -0700
+
+
+Started GET "/assets/ckeditor/skins/moono/icons.png" for 127.0.0.1 at 2014-07-27 07:21:14 -0700
+
+
+Started GET "/assets/ckeditor/contents.css?t=E5OD" for 127.0.0.1 at 2014-07-27 07:21:14 -0700
+
+
+Started POST "/articles" for 127.0.0.1 at 2014-07-27 07:24:28 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6K44k7rm1SG4QOPU1yWqlsCJ7X0BiIz0vmovM6rL3wY=", "article"=>{"title"=>"My new Article", "body"=>"<p>, group: :production</p>\r\n", "attachment"=>#<ActionDispatch::Http::UploadedFile:0x92d4ef8 @tempfile=#<File:/tmp/RackMultipart20140727-6513-1h0jfi3>, @original_filename="blog-github.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"article[attachment]\"; filename=\"blog-github.png\"\r\nContent-Type: image/png\r\n">, "tag_list"=>"Ruby"}, "commit"=>"Create Article"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+Command :: file -b --mime '/tmp/b390097d35d68739a6c40d3cf44491b120140727-6513-1ohhg4f.png'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/b390097d35d68739a6c40d3cf44491b120140727-6513-ex6fx6.png[0]' 2>/dev/null
+Command :: convert '/tmp/b390097d35d68739a6c40d3cf44491b120140727-6513-ex6fx6.png[0]' -auto-orient -resize "x100" -crop "100x100+76+0" +repage '/tmp/b390097d35d68739a6c40d3cf44491b120140727-6513-ex6fx620140727-6513-1njzofz.jpg'
+Command :: file -b --mime '/tmp/b390097d35d68739a6c40d3cf44491b120140727-6513-ex6fx620140727-6513-1njzofz.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/b390097d35d68739a6c40d3cf44491b120140727-6513-ex6fx6.png[0]' 2>/dev/null
+Command :: convert '/tmp/b390097d35d68739a6c40d3cf44491b120140727-6513-ex6fx6.png[0]' -auto-orient -resize "x480" -crop "480x480+365+0" +repage '/tmp/b390097d35d68739a6c40d3cf44491b120140727-6513-ex6fx620140727-6513-1gjxt1f.jpg'
+Command :: file -b --mime '/tmp/b390097d35d68739a6c40d3cf44491b120140727-6513-ex6fx620140727-6513-1gjxt1f.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/b390097d35d68739a6c40d3cf44491b120140727-6513-ex6fx6.png[0]' 2>/dev/null
+Command :: convert '/tmp/b390097d35d68739a6c40d3cf44491b120140727-6513-ex6fx6.png[0]' -auto-orient -resize "x480" -crop "480x480+365+0" +repage '/tmp/b390097d35d68739a6c40d3cf44491b120140727-6513-ex6fx620140727-6513-1vnbra4.jpg'
+Command :: file -b --mime '/tmp/b390097d35d68739a6c40d3cf44491b120140727-6513-ex6fx620140727-6513-1vnbra4.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/b390097d35d68739a6c40d3cf44491b120140727-6513-ex6fx6.png[0]' 2>/dev/null
+Command :: convert '/tmp/b390097d35d68739a6c40d3cf44491b120140727-6513-ex6fx6.png[0]' -auto-orient -resize "600>" '/tmp/b390097d35d68739a6c40d3cf44491b120140727-6513-ex6fx620140727-6513-1k509t5.jpg'
+Command :: file -b --mime '/tmp/b390097d35d68739a6c40d3cf44491b120140727-6513-ex6fx620140727-6513-1k509t5.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/b390097d35d68739a6c40d3cf44491b120140727-6513-ex6fx6.png[0]' 2>/dev/null
+Command :: convert '/tmp/b390097d35d68739a6c40d3cf44491b120140727-6513-ex6fx6.png[0]' -auto-orient -resize "1200>" '/tmp/b390097d35d68739a6c40d3cf44491b120140727-6513-ex6fx620140727-6513-1u744tk.jpg'
+Command :: file -b --mime '/tmp/b390097d35d68739a6c40d3cf44491b120140727-6513-ex6fx620140727-6513-1u744tk.jpg'
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+Command :: file -b --mime '/tmp/b390097d35d68739a6c40d3cf44491b120140727-6513-b0ctsa.png'
+Binary data inserted for `string` type on column `attachment_content_type`
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "articles" ("attachment_content_type", "attachment_file_name", "attachment_file_size", "attachment_updated_at", "body", "created_at", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["attachment_content_type", "image/png"], ["attachment_file_name", "blog-github.png"], ["attachment_file_size", 14504], ["attachment_updated_at", "2014-07-27 14:24:29.539228"], ["body", "<p>, group: :production</p>\r\n"], ["created_at", "2014-07-27 14:24:30.465480"], ["title", "My new Article"], ["updated_at", "2014-07-27 14:24:30.465480"], ["user_id", 1]]
+  [1m[36mActsAsTaggableOn::Tag Load (1.3ms)[0m  [1mSELECT "tags".* FROM "tags"  WHERE (LOWER(name) = LOWER('ruby'))[0m
+  [1m[35mActsAsTaggableOn::Tag Exists (0.2ms)[0m  SELECT  1 AS one FROM "tags"  WHERE "tags"."name" = 'Ruby' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tags" ("name") VALUES (?)[0m  [["name", "Ruby"]]
+  [1m[35mActsAsTaggableOn::Tag Load (0.2ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)  [["taggable_id", 1], ["taggable_type", "Article"]]
+  [1m[36mActsAsTaggableOn::Tagging Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "taggings"  WHERE ("taggings"."tag_id" = 1 AND "taggings"."taggable_type" = 'Article' AND "taggings"."taggable_id" = 1 AND "taggings"."context" = 'tags' AND "taggings"."tagger_id" IS NULL AND "taggings"."tagger_type" IS NULL) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "taggings" ("context", "created_at", "tag_id", "taggable_id", "taggable_type") VALUES (?, ?, ?, ?, ?)  [["context", "tags"], ["created_at", "2014-07-27 14:24:30.798661"], ["tag_id", 1], ["taggable_id", 1], ["taggable_type", "Article"]]
+  [1m[36mActsAsTaggableOn::Tag Load (0.1ms)[0m  [1mSELECT  "tags".* FROM "tags"  WHERE "tags"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mSQL (0.1ms)[0m  UPDATE "tags" SET "taggings_count" = COALESCE("taggings_count", 0) + 1 WHERE "tags"."id" = 1
+  [1m[36m (10.4ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/articles/1
+Completed 302 Found in 1573ms (ActiveRecord: 16.2ms)
+
+
+Started GET "/articles/1" for 127.0.0.1 at 2014-07-27 07:24:30 -0700
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mArticle Load (0.5ms)[0m  SELECT  "articles".* FROM "articles"  WHERE "articles"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mActsAsTaggableOn::Tag Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = ('tags')) LIMIT 1[0m  [["taggable_id", 1], ["taggable_type", "Article"]]
+  [1m[35mActsAsTaggableOn::Tag Load (0.2ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = ('tags'))  [["taggable_id", 1], ["taggable_type", "Article"]]
+  Rendered articles/show.html.erb within layouts/application (13.4ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 278ms (Views: 272.1ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-07-27 07:24:31 -0700
+
+
+Started GET "/assets/androidblog.css?body=1" for 127.0.0.1 at 2014-07-27 07:24:31 -0700
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-07-27 07:24:31 -0700
+
+
+Started GET "/assets/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2014-07-27 07:24:31 -0700
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2014-07-27 07:24:31 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-27 07:24:31 -0700
+
+
+Started GET "/assets/vendor/modernizr.js?body=1" for 127.0.0.1 at 2014-07-27 07:24:31 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-27 07:24:31 -0700
+
+
+Started GET "/assets/foundation/foundation.js?body=1" for 127.0.0.1 at 2014-07-27 07:24:31 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-27 07:24:31 -0700
+
+
+Started GET "/assets/foundation/foundation.abide.js?body=1" for 127.0.0.1 at 2014-07-27 07:24:31 -0700
+
+
+Started GET "/assets/foundation/foundation.accordion.js?body=1" for 127.0.0.1 at 2014-07-27 07:24:31 -0700
+
+
+Started GET "/assets/foundation/foundation.alert.js?body=1" for 127.0.0.1 at 2014-07-27 07:24:31 -0700
+
+
+Started GET "/assets/foundation/foundation.clearing.js?body=1" for 127.0.0.1 at 2014-07-27 07:24:31 -0700
+
+
+Started GET "/assets/foundation/foundation.dropdown.js?body=1" for 127.0.0.1 at 2014-07-27 07:24:31 -0700
+
+
+Started GET "/assets/foundation/foundation.joyride.js?body=1" for 127.0.0.1 at 2014-07-27 07:24:31 -0700
+
+
+Started GET "/assets/foundation/foundation.interchange.js?body=1" for 127.0.0.1 at 2014-07-27 07:24:31 -0700
+
+
+Started GET "/assets/foundation/foundation.offcanvas.js?body=1" for 127.0.0.1 at 2014-07-27 07:24:31 -0700
+
+
+Started GET "/assets/foundation/foundation.magellan.js?body=1" for 127.0.0.1 at 2014-07-27 07:24:31 -0700
+
+
+Started GET "/assets/foundation/foundation.orbit.js?body=1" for 127.0.0.1 at 2014-07-27 07:24:31 -0700
+
+
+Started GET "/assets/foundation/foundation.slider.js?body=1" for 127.0.0.1 at 2014-07-27 07:24:31 -0700
+
+
+Started GET "/assets/foundation/foundation.reveal.js?body=1" for 127.0.0.1 at 2014-07-27 07:24:31 -0700
+
+
+Started GET "/assets/foundation/foundation.tab.js?body=1" for 127.0.0.1 at 2014-07-27 07:24:31 -0700
+
+
+Started GET "/assets/foundation/foundation.tooltip.js?body=1" for 127.0.0.1 at 2014-07-27 07:24:31 -0700
+
+
+Started GET "/assets/foundation/foundation.topbar.js?body=1" for 127.0.0.1 at 2014-07-27 07:24:31 -0700
+
+
+Started GET "/assets/foundation/foundation.equalizer.js?body=1" for 127.0.0.1 at 2014-07-27 07:24:31 -0700
+
+
+Started GET "/assets/foundation.js?body=1" for 127.0.0.1 at 2014-07-27 07:24:31 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-27 07:24:31 -0700
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-07-27 07:24:31 -0700
+
+
+Started GET "/assets/androidblog.js?body=1" for 127.0.0.1 at 2014-07-27 07:24:31 -0700
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2014-07-27 07:24:31 -0700
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-07-27 07:24:31 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-27 07:24:31 -0700
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2014-07-27 07:24:31 -0700
+
+
+Started GET "/articles/1/edit" for 127.0.0.1 at 2014-07-27 07:24:35 -0700
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mArticle Load (0.3ms)[0m  [1mSELECT  "articles".* FROM "articles"  WHERE "articles"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "articles".* FROM "articles"  WHERE "articles"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mActsAsTaggableOn::Tag Load (0.8ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m  [["taggable_id", 1], ["taggable_type", "Article"]]
+  Rendered articles/_form.html.erb (78.2ms)
+  Rendered articles/edit.html.erb within layouts/application (88.7ms)
+Completed 200 OK in 111ms (Views: 103.1ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/ckeditor/config.js?t=E5OD" for 127.0.0.1 at 2014-07-27 07:24:35 -0700
+
+
+Started GET "/assets/ckeditor/skins/moono/editor_gecko.css?t=E5OD" for 127.0.0.1 at 2014-07-27 07:24:35 -0700
+
+
+Started GET "/assets/ckeditor/lang/en.js?t=E5OD" for 127.0.0.1 at 2014-07-27 07:24:35 -0700
+
+
+Started GET "/assets/ckeditor/styles.js?t=E5OD" for 127.0.0.1 at 2014-07-27 07:24:35 -0700
+
+
+Started GET "/assets/ckeditor/skins/moono/icons.png" for 127.0.0.1 at 2014-07-27 07:24:36 -0700
+
+
+Started GET "/assets/ckeditor/contents.css?t=E5OD" for 127.0.0.1 at 2014-07-27 07:24:36 -0700
+
+
+Started GET "/assets/ckeditor/skins/moono/editor_gecko.css?t=E5OD" for 127.0.0.1 at 2014-07-27 07:24:42 -0700
+
+
+Started GET "/assets/ckeditor/plugins/icons.png?t=E5OD" for 127.0.0.1 at 2014-07-27 07:24:43 -0700
+
+
+Started GET "/assets/ckeditor/skins/moono/icons.png" for 127.0.0.1 at 2014-07-27 07:24:43 -0700
+
+
+Started GET "/assets/ckeditor/plugins/clipboard/dialogs/paste.js?t=E5OD" for 127.0.0.1 at 2014-07-27 07:24:44 -0700
+
+
+Started GET "/assets/ckeditor/skins/moono/dialog.css?t=E5OD" for 127.0.0.1 at 2014-07-27 07:24:44 -0700
+
+
+Started GET "/assets/ckeditor/skins/moono/images/close.png" for 127.0.0.1 at 2014-07-27 07:24:44 -0700
+
+
+Started PATCH "/articles/1" for 127.0.0.1 at 2014-07-27 07:24:49 -0700
+Processing by ArticlesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6K44k7rm1SG4QOPU1yWqlsCJ7X0BiIz0vmovM6rL3wY=", "article"=>{"title"=>"My new Article", "body"=>"<p>Compiling CoffeeScript to JavaScript requires a JavaScript runtime and the absence of a runtime will give you an <code>execjs</code> error. Usually Mac OS X and Windows come with a JavaScript runtime installed. Rails adds the <code>therubyracer</code> gem to the generated <code>Gemfile</code> in a commented line for new apps and you can uncomment if you need it. <code>therubyrhino</code> is the recommended runtime for JRuby users and is added by default to the <code>Gemfile</code> in apps generated under JRuby. You can investigate about all the supported runtimes at <a href=\"https://github.com/sstephenson/execjs#readme\">ExecJS</a>.</p>\r\n", "tag_list"=>"Ruby"}, "id"=>"1"}
+  [1m[35mArticle Load (0.2ms)[0m  SELECT  "articles".* FROM "articles"  WHERE "articles"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mActsAsTaggableOn::Tag Load (0.2ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)  [["taggable_id", 1], ["taggable_type", "Article"]]
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "articles" SET "body" = ?, "updated_at" = ? WHERE "articles"."id" = 1[0m  [["body", "<p>Compiling CoffeeScript to JavaScript requires a JavaScript runtime and the absence of a runtime will give you an <code>execjs</code> error. Usually Mac OS X and Windows come with a JavaScript runtime installed. Rails adds the <code>therubyracer</code> gem to the generated <code>Gemfile</code> in a commented line for new apps and you can uncomment if you need it. <code>therubyrhino</code> is the recommended runtime for JRuby users and is added by default to the <code>Gemfile</code> in apps generated under JRuby. You can investigate about all the supported runtimes at <a href=\"https://github.com/sstephenson/execjs#readme\">ExecJS</a>.</p>\r\n"], ["updated_at", "2014-07-27 14:24:49.875552"]]
+  [1m[35mActsAsTaggableOn::Tag Load (0.1ms)[0m  SELECT "tags".* FROM "tags"  WHERE (LOWER(name) = LOWER('ruby'))
+  [1m[36mActsAsTaggableOn::Tag Load (0.1ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)[0m  [["taggable_id", 1], ["taggable_type", "Article"]]
+  [1m[35m (19.5ms)[0m  commit transaction
+Redirected to http://localhost:3000/articles/1
+Completed 302 Found in 71ms (ActiveRecord: 20.7ms)
+
+
+Started GET "/articles/1" for 127.0.0.1 at 2014-07-27 07:24:49 -0700
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.2ms)[0m  [1mSELECT  "articles".* FROM "articles"  WHERE "articles"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mActsAsTaggableOn::Tag Exists (0.2ms)[0m  SELECT  1 AS one FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = ('tags')) LIMIT 1  [["taggable_id", 1], ["taggable_type", "Article"]]
+  [1m[36mActsAsTaggableOn::Tag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = ('tags'))[0m  [["taggable_id", 1], ["taggable_type", "Article"]]
+  Rendered articles/show.html.erb within layouts/application (7.3ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 25ms (Views: 20.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-07-27 07:24:50 -0700
+
+
+Started GET "/assets/androidblog.css?body=1" for 127.0.0.1 at 2014-07-27 07:24:50 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-27 07:24:50 -0700
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2014-07-27 07:24:50 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-27 07:24:50 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-27 07:24:50 -0700
+
+
+Started GET "/assets/vendor/modernizr.js?body=1" for 127.0.0.1 at 2014-07-27 07:24:50 -0700
+
+
+Started GET "/assets/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2014-07-27 07:24:50 -0700
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-07-27 07:24:50 -0700
+
+
+Started GET "/assets/foundation/foundation.js?body=1" for 127.0.0.1 at 2014-07-27 07:24:50 -0700
+
+
+Started GET "/assets/foundation/foundation.abide.js?body=1" for 127.0.0.1 at 2014-07-27 07:24:50 -0700
+
+
+Started GET "/assets/foundation/foundation.clearing.js?body=1" for 127.0.0.1 at 2014-07-27 07:24:50 -0700
+
+
+Started GET "/assets/foundation/foundation.alert.js?body=1" for 127.0.0.1 at 2014-07-27 07:24:50 -0700
+
+
+Started GET "/assets/foundation/foundation.dropdown.js?body=1" for 127.0.0.1 at 2014-07-27 07:24:50 -0700
+
+
+Started GET "/assets/foundation/foundation.accordion.js?body=1" for 127.0.0.1 at 2014-07-27 07:24:50 -0700
+
+
+Started GET "/assets/foundation/foundation.interchange.js?body=1" for 127.0.0.1 at 2014-07-27 07:24:50 -0700
+
+
+Started GET "/assets/foundation/foundation.magellan.js?body=1" for 127.0.0.1 at 2014-07-27 07:24:50 -0700
+
+
+Started GET "/assets/foundation/foundation.offcanvas.js?body=1" for 127.0.0.1 at 2014-07-27 07:24:50 -0700
+
+
+Started GET "/assets/foundation/foundation.joyride.js?body=1" for 127.0.0.1 at 2014-07-27 07:24:50 -0700
+
+
+Started GET "/assets/foundation/foundation.orbit.js?body=1" for 127.0.0.1 at 2014-07-27 07:24:50 -0700
+
+
+Started GET "/assets/foundation/foundation.reveal.js?body=1" for 127.0.0.1 at 2014-07-27 07:24:50 -0700
+
+
+Started GET "/assets/foundation/foundation.slider.js?body=1" for 127.0.0.1 at 2014-07-27 07:24:50 -0700
+
+
+Started GET "/assets/foundation/foundation.equalizer.js?body=1" for 127.0.0.1 at 2014-07-27 07:24:50 -0700
+
+
+Started GET "/assets/foundation/foundation.tooltip.js?body=1" for 127.0.0.1 at 2014-07-27 07:24:50 -0700
+
+
+Started GET "/assets/foundation.js?body=1" for 127.0.0.1 at 2014-07-27 07:24:50 -0700
+
+
+Started GET "/assets/foundation/foundation.tab.js?body=1" for 127.0.0.1 at 2014-07-27 07:24:50 -0700
+
+
+Started GET "/assets/foundation/foundation.topbar.js?body=1" for 127.0.0.1 at 2014-07-27 07:24:50 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-27 07:24:50 -0700
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-07-27 07:24:50 -0700
+
+
+Started GET "/assets/androidblog.js?body=1" for 127.0.0.1 at 2014-07-27 07:24:50 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-27 07:24:50 -0700
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2014-07-27 07:24:50 -0700
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2014-07-27 07:24:50 -0700
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-07-27 07:24:50 -0700
+
+
+Started GET "/androidblog/index?tag=Ruby" for 127.0.0.1 at 2014-07-27 07:24:53 -0700
+Processing by AndroidblogController#index as HTML
+  Parameters: {"tag"=>"Ruby"}
+  [1m[36mActsAsTaggableOn::Tag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags"  WHERE (LOWER(name) = LOWER('ruby'))[0m
+  [1m[35mArticle Load (0.3ms)[0m  SELECT  "articles".* FROM "articles" JOIN taggings articles_taggings_c3f1bf8  ON articles_taggings_c3f1bf8.taggable_id = articles.id AND articles_taggings_c3f1bf8.taggable_type = 'Article' AND articles_taggings_c3f1bf8.tag_id = 1 LIMIT 10 OFFSET 0
+  Rendered androidblog/index.html.erb within layouts/application (4.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 26ms (Views: 20.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2014-07-27 07:24:59 -0700
+Processing by ArticlesController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mArticle Load (0.2ms)[0m  [1mSELECT  "articles".* FROM "articles"  LIMIT 3 OFFSET 0[0m
+  Rendered articles/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 16ms (Views: 14.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-27 07:25:06 -0700
+Processing by AndroidblogController#index as HTML
+  [1m[35mArticle Load (0.3ms)[0m  SELECT  "articles".* FROM "articles"  LIMIT 10 OFFSET 0
+  Rendered androidblog/index.html.erb within layouts/application (1.2ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 17ms (Views: 15.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/articles/1/update_published_at" for 127.0.0.1 at 2014-07-27 07:25:10 -0700
+Processing by ArticlesController#update_published_at as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mArticle Load (0.2ms)[0m  SELECT  "articles".* FROM "articles"  WHERE "articles"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "articles".* FROM "articles"  WHERE "articles"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  UPDATE "articles" SET "published_at" = ?, "updated_at" = ? WHERE "articles"."id" = 1  [["published_at", "July 27, 2014"], ["updated_at", "2014-07-27 14:25:10.289978"]]
+  [1m[36m (4.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/articles
+Completed 302 Found in 20ms (ActiveRecord: 5.2ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2014-07-27 07:25:10 -0700
+Processing by ArticlesController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mArticle Load (0.3ms)[0m  [1mSELECT  "articles".* FROM "articles"  LIMIT 3 OFFSET 0[0m
+  Rendered articles/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 24ms (Views: 18.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-27 07:25:12 -0700
+Processing by AndroidblogController#index as HTML
+  [1m[35mArticle Load (0.2ms)[0m  SELECT  "articles".* FROM "articles"  LIMIT 10 OFFSET 0
+  Rendered androidblog/index.html.erb within layouts/application (3.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 21ms (Views: 18.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/androidblog/1" for 127.0.0.1 at 2014-07-27 07:25:14 -0700
+Processing by AndroidblogController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mArticle Load (0.3ms)[0m  SELECT  "articles".* FROM "articles"  WHERE "articles"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mActsAsTaggableOn::Tag Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = ('tags')) LIMIT 1[0m  [["taggable_id", 1], ["taggable_type", "Article"]]
+  [1m[35mActsAsTaggableOn::Tag Load (0.3ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = ('tags'))  [["taggable_id", 1], ["taggable_type", "Article"]]
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."article_id" = ?[0m  [["article_id", 1]]
+  Rendered androidblog/show.html.erb within layouts/application (26.0ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 72ms (Views: 67.2ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/articles/1/comments" for 127.0.0.1 at 2014-07-27 07:25:35 -0700
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6K44k7rm1SG4QOPU1yWqlsCJ7X0BiIz0vmovM6rL3wY=", "comment"=>{"commenter"=>"Akshay", "email"=>"aks@gmail.com", "body"=>"great!"}, "commit"=>"Create Comment", "article_id"=>"1"}
+  [1m[36mArticle Load (0.1ms)[0m  [1mSELECT  "articles".* FROM "articles"  WHERE "articles"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "comments" ("article_id", "body", "commenter", "created_at", "email", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["article_id", 1], ["body", "great!"], ["commenter", "Akshay"], ["created_at", "2014-07-27 14:25:35.133677"], ["email", "aks@gmail.com"], ["updated_at", "2014-07-27 14:25:35.133677"]]
+  [1m[35m (5.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "articles" SET "total_comment" = ?, "updated_at" = ? WHERE "articles"."id" = 1  [["total_comment", 1], ["updated_at", "2014-07-27 14:25:35.143101"]]
+  [1m[36m (12.3ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/androidblog/1
+Completed 302 Found in 29ms (ActiveRecord: 19.3ms)
+
+
+Started GET "/androidblog/1" for 127.0.0.1 at 2014-07-27 07:25:35 -0700
+Processing by AndroidblogController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mArticle Load (0.1ms)[0m  SELECT  "articles".* FROM "articles"  WHERE "articles"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mActsAsTaggableOn::Tag Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = ('tags')) LIMIT 1[0m  [["taggable_id", 1], ["taggable_type", "Article"]]
+  [1m[35mActsAsTaggableOn::Tag Load (0.2ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = ('tags'))  [["taggable_id", 1], ["taggable_type", "Article"]]
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments"  WHERE "comments"."article_id" = ?[0m  [["article_id", 1]]
+  Rendered androidblog/show.html.erb within layouts/application (14.6ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+Completed 200 OK in 33ms (Views: 30.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-07-27 07:25:35 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-27 07:25:35 -0700
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2014-07-27 07:25:35 -0700
+
+
+Started GET "/assets/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2014-07-27 07:25:35 -0700
+
+
+Started GET "/assets/androidblog.css?body=1" for 127.0.0.1 at 2014-07-27 07:25:35 -0700
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-07-27 07:25:35 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-27 07:25:35 -0700
+
+
+Started GET "/assets/vendor/modernizr.js?body=1" for 127.0.0.1 at 2014-07-27 07:25:35 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-27 07:25:35 -0700
+
+
+Started GET "/assets/foundation/foundation.abide.js?body=1" for 127.0.0.1 at 2014-07-27 07:25:35 -0700
+
+
+Started GET "/assets/foundation/foundation.js?body=1" for 127.0.0.1 at 2014-07-27 07:25:35 -0700
+
+
+Started GET "/assets/foundation/foundation.accordion.js?body=1" for 127.0.0.1 at 2014-07-27 07:25:35 -0700
+
+
+Started GET "/assets/foundation/foundation.alert.js?body=1" for 127.0.0.1 at 2014-07-27 07:25:35 -0700
+
+
+Started GET "/assets/foundation/foundation.clearing.js?body=1" for 127.0.0.1 at 2014-07-27 07:25:35 -0700
+
+
+Started GET "/assets/foundation/foundation.dropdown.js?body=1" for 127.0.0.1 at 2014-07-27 07:25:35 -0700
+
+
+Started GET "/assets/foundation/foundation.joyride.js?body=1" for 127.0.0.1 at 2014-07-27 07:25:35 -0700
+
+
+Started GET "/assets/foundation/foundation.interchange.js?body=1" for 127.0.0.1 at 2014-07-27 07:25:35 -0700
+
+
+Started GET "/assets/foundation/foundation.magellan.js?body=1" for 127.0.0.1 at 2014-07-27 07:25:35 -0700
+
+
+Started GET "/assets/foundation/foundation.reveal.js?body=1" for 127.0.0.1 at 2014-07-27 07:25:35 -0700
+
+
+Started GET "/assets/foundation/foundation.orbit.js?body=1" for 127.0.0.1 at 2014-07-27 07:25:35 -0700
+
+
+Started GET "/assets/foundation/foundation.slider.js?body=1" for 127.0.0.1 at 2014-07-27 07:25:35 -0700
+
+
+Started GET "/assets/foundation/foundation.tab.js?body=1" for 127.0.0.1 at 2014-07-27 07:25:35 -0700
+
+
+Started GET "/assets/foundation/foundation.offcanvas.js?body=1" for 127.0.0.1 at 2014-07-27 07:25:35 -0700
+
+
+Started GET "/assets/foundation/foundation.tooltip.js?body=1" for 127.0.0.1 at 2014-07-27 07:25:35 -0700
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-07-27 07:25:35 -0700
+
+
+Started GET "/assets/foundation.js?body=1" for 127.0.0.1 at 2014-07-27 07:25:35 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-27 07:25:35 -0700
+
+
+Started GET "/assets/foundation/foundation.topbar.js?body=1" for 127.0.0.1 at 2014-07-27 07:25:35 -0700
+
+
+Started GET "/assets/foundation/foundation.equalizer.js?body=1" for 127.0.0.1 at 2014-07-27 07:25:35 -0700
+
+
+Started GET "/assets/androidblog.js?body=1" for 127.0.0.1 at 2014-07-27 07:25:35 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-27 07:25:35 -0700
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2014-07-27 07:25:35 -0700
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2014-07-27 07:25:35 -0700
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-07-27 07:25:35 -0700
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2014-07-27 07:25:46 -0700
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"6K44k7rm1SG4QOPU1yWqlsCJ7X0BiIz0vmovM6rL3wY="}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 11ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-27 07:25:46 -0700
+Processing by AndroidblogController#index as HTML
+  [1m[35mArticle Load (0.2ms)[0m  SELECT  "articles".* FROM "articles"  LIMIT 10 OFFSET 0
+  Rendered androidblog/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 26ms (Views: 24.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-07-27 07:25:46 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-27 07:25:46 -0700
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-07-27 07:25:46 -0700
+
+
+Started GET "/assets/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2014-07-27 07:25:46 -0700
+
+
+Started GET "/assets/androidblog.css?body=1" for 127.0.0.1 at 2014-07-27 07:25:46 -0700
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2014-07-27 07:25:46 -0700
+
+
+Started GET "/assets/vendor/modernizr.js?body=1" for 127.0.0.1 at 2014-07-27 07:25:46 -0700
+
+
+Started GET "/assets/foundation/foundation.accordion.js?body=1" for 127.0.0.1 at 2014-07-27 07:25:46 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-27 07:25:46 -0700
+
+
+Started GET "/assets/foundation/foundation.abide.js?body=1" for 127.0.0.1 at 2014-07-27 07:25:46 -0700
+
+
+Started GET "/assets/foundation/foundation.js?body=1" for 127.0.0.1 at 2014-07-27 07:25:46 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-27 07:25:46 -0700
+
+
+Started GET "/assets/foundation/foundation.alert.js?body=1" for 127.0.0.1 at 2014-07-27 07:25:46 -0700
+
+
+Started GET "/assets/foundation/foundation.interchange.js?body=1" for 127.0.0.1 at 2014-07-27 07:25:46 -0700
+
+
+Started GET "/assets/foundation/foundation.dropdown.js?body=1" for 127.0.0.1 at 2014-07-27 07:25:46 -0700
+
+
+Started GET "/assets/foundation/foundation.clearing.js?body=1" for 127.0.0.1 at 2014-07-27 07:25:46 -0700
+
+
+Started GET "/assets/foundation/foundation.offcanvas.js?body=1" for 127.0.0.1 at 2014-07-27 07:25:46 -0700
+
+
+Started GET "/assets/foundation/foundation.magellan.js?body=1" for 127.0.0.1 at 2014-07-27 07:25:46 -0700
+
+
+Started GET "/assets/foundation/foundation.joyride.js?body=1" for 127.0.0.1 at 2014-07-27 07:25:46 -0700
+
+
+Started GET "/assets/foundation/foundation.reveal.js?body=1" for 127.0.0.1 at 2014-07-27 07:25:46 -0700
+
+
+Started GET "/assets/foundation/foundation.slider.js?body=1" for 127.0.0.1 at 2014-07-27 07:25:46 -0700
+
+
+Started GET "/assets/foundation/foundation.orbit.js?body=1" for 127.0.0.1 at 2014-07-27 07:25:46 -0700
+
+
+Started GET "/assets/foundation/foundation.tab.js?body=1" for 127.0.0.1 at 2014-07-27 07:25:46 -0700
+
+
+Started GET "/assets/foundation/foundation.topbar.js?body=1" for 127.0.0.1 at 2014-07-27 07:25:46 -0700
+
+
+Started GET "/assets/foundation/foundation.tooltip.js?body=1" for 127.0.0.1 at 2014-07-27 07:25:46 -0700
+
+
+Started GET "/assets/foundation.js?body=1" for 127.0.0.1 at 2014-07-27 07:25:46 -0700
+
+
+Started GET "/assets/foundation/foundation.equalizer.js?body=1" for 127.0.0.1 at 2014-07-27 07:25:46 -0700
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-07-27 07:25:46 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-27 07:25:46 -0700
+
+
+Started GET "/assets/androidblog.js?body=1" for 127.0.0.1 at 2014-07-27 07:25:46 -0700
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-07-27 07:25:46 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-27 07:25:46 -0700
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2014-07-27 07:25:46 -0700
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2014-07-27 07:25:46 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2014-07-27 07:29:26 -0700
+Processing by AndroidblogController#index as HTML
+  [1m[36mArticle Load (0.5ms)[0m  [1mSELECT  "articles".* FROM "articles"  LIMIT 10 OFFSET 0[0m
+  Rendered androidblog/index.html.erb within layouts/application (741.3ms)
+Completed 200 OK in 2558ms (Views: 2116.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-07-27 07:29:33 -0700
+
+
+Started GET "/assets/androidblog.css?body=1" for 127.0.0.1 at 2014-07-27 07:29:33 -0700
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2014-07-27 07:29:33 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-27 07:29:33 -0700
+
+
+Started GET "/assets/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2014-07-27 07:29:33 -0700
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-07-27 07:29:33 -0700
+
+
+Started GET "/assets/vendor/modernizr.js?body=1" for 127.0.0.1 at 2014-07-27 07:29:33 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-27 07:29:33 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-27 07:29:33 -0700
+
+
+Started GET "/assets/foundation/foundation.abide.js?body=1" for 127.0.0.1 at 2014-07-27 07:29:34 -0700
+
+
+Started GET "/assets/foundation/foundation.clearing.js?body=1" for 127.0.0.1 at 2014-07-27 07:29:34 -0700
+
+
+Started GET "/assets/foundation/foundation.js?body=1" for 127.0.0.1 at 2014-07-27 07:29:34 -0700
+
+
+Started GET "/assets/foundation/foundation.accordion.js?body=1" for 127.0.0.1 at 2014-07-27 07:29:34 -0700
+
+
+Started GET "/assets/foundation/foundation.alert.js?body=1" for 127.0.0.1 at 2014-07-27 07:29:34 -0700
+
+
+Started GET "/assets/foundation/foundation.dropdown.js?body=1" for 127.0.0.1 at 2014-07-27 07:29:34 -0700
+
+
+Started GET "/assets/foundation/foundation.interchange.js?body=1" for 127.0.0.1 at 2014-07-27 07:29:34 -0700
+
+
+Started GET "/assets/foundation/foundation.joyride.js?body=1" for 127.0.0.1 at 2014-07-27 07:29:34 -0700
+
+
+Started GET "/assets/foundation/foundation.magellan.js?body=1" for 127.0.0.1 at 2014-07-27 07:29:34 -0700
+
+
+Started GET "/assets/foundation/foundation.reveal.js?body=1" for 127.0.0.1 at 2014-07-27 07:29:34 -0700
+
+
+Started GET "/assets/foundation/foundation.orbit.js?body=1" for 127.0.0.1 at 2014-07-27 07:29:34 -0700
+
+
+Started GET "/assets/foundation/foundation.offcanvas.js?body=1" for 127.0.0.1 at 2014-07-27 07:29:34 -0700
+
+
+Started GET "/assets/foundation/foundation.slider.js?body=1" for 127.0.0.1 at 2014-07-27 07:29:34 -0700
+
+
+Started GET "/assets/foundation/foundation.tab.js?body=1" for 127.0.0.1 at 2014-07-27 07:29:34 -0700
+
+
+Started GET "/assets/foundation.js?body=1" for 127.0.0.1 at 2014-07-27 07:29:34 -0700
+
+
+Started GET "/assets/foundation/foundation.equalizer.js?body=1" for 127.0.0.1 at 2014-07-27 07:29:35 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-27 07:29:35 -0700
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-07-27 07:29:35 -0700
+
+
+Started GET "/assets/foundation/foundation.topbar.js?body=1" for 127.0.0.1 at 2014-07-27 07:29:35 -0700
+
+
+Started GET "/assets/foundation/foundation.tooltip.js?body=1" for 127.0.0.1 at 2014-07-27 07:29:35 -0700
+
+
+Started GET "/assets/androidblog.js?body=1" for 127.0.0.1 at 2014-07-27 07:29:35 -0700
+
+
+Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2014-07-27 07:29:35 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-27 07:29:35 -0700
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-07-27 07:29:35 -0700
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2014-07-27 07:29:35 -0700
