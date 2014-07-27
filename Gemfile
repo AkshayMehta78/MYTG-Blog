@@ -32,7 +32,9 @@ group :development do
   gem 'spring'
 end
 
-gem 'pg', group: :production
+group :production do
+  gem 'pg'
+end
 
 gem 'devise'
 
