@@ -46,7 +46,7 @@ gem 'acts-as-taggable-on'
 gem 'paperclip'
 
 gem 'foundation-rails'
-
+gem "ckeditor"
 
 
 gem 'heroku'

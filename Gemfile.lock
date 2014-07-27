@@ -32,7 +32,6 @@ GEM
     addressable (2.3.6)
     arel (5.0.1.20140414130214)
     bcrypt (3.1.7)
-    bcrypt-ruby (3.0.1)
     better_errors (1.1.0)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
@@ -67,8 +66,6 @@ GEM
     foundation-rails (5.3.1.0)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
-    haml (4.0.5)
-      tilt
     heroku (3.9.6)
       excon (= 0.33.0)
       heroku-api (= 0.3.18)
@@ -103,6 +100,7 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
       mime-types
+    pg (0.17.1)
     polyglot (0.3.5)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -175,18 +173,17 @@ PLATFORMS
 
 DEPENDENCIES
   acts-as-taggable-on
-  bcrypt-ruby (~> 3.0.0)
   better_errors
   binding_of_caller
   ckeditor
   coffee-rails (~> 4.0.0)
   devise
   foundation-rails
-  haml
   heroku
   jbuilder (~> 2.0)
   jquery-rails
-  paperclip (~> 4.1)
+  paperclip
+  pg
   rails (= 4.1.4)
   rails_12factor
   sass-rails (~> 4.0.3)
