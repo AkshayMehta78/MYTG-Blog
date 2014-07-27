@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
 # Use sqlite3 as the database for Active Record
+# gem 'sqlite3'
 group :development, :test do # <<<< :development, not devlopment
   gem 'sqlite3'
 end
@@ -14,7 +15,7 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer',  platforms: :ruby
+# gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -23,9 +24,10 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 0.4.0',          group: :doc
+gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
@@ -37,23 +39,19 @@ group :production do
 end
 
 gem 'devise'
-
 gem 'will_paginate', '~> 3.0'
 
 gem 'acts-as-taggable-on'
 
-gem "paperclip", "~> 4.1", group: :development
-
-gem "haml"
+gem 'paperclip'
 
 gem 'foundation-rails'
 
-gem 'rails_12factor', group: :production
+
 
 gem 'heroku'
-gem "ckeditor"
 
-gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'rails_12factor', group: :production
 
 ruby "1.9.3"
 # Use ActiveModel has_secure_password
