@@ -11,11 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140725182811) do
+ActiveRecord::Schema.define(version: 20140728030738) do
 
-  create_table "articles", force: true do |t|
+  create_table "Articles", force: true do |t|
     t.string   "title"
-    t.string   "body"
+    t.text     "body",                    limit: 255
     t.integer  "user_id"
     t.string   "published_at"
     t.datetime "created_at"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20140725182811) do
     t.string   "attachment_content_type"
     t.integer  "attachment_file_size"
     t.datetime "attachment_updated_at"
-    t.integer  "total_comment",           default: 0
+    t.integer  "total_comment",                       default: 0
   end
 
   create_table "ckeditor_assets", force: true do |t|

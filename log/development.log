@@ -4285,3 +4285,497 @@ Started GET "/assets/ckeditor/ckeditor.js?body=1" for 127.0.0.1 at 2014-07-27 11
 
 
 Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2014-07-27 11:41:37 -0700
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2014-07-27 19:59:20 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ArticlesController#new as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  UPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = 1  [["current_sign_in_at", "2014-07-28 02:59:21.151546"], ["last_sign_in_at", "2014-07-27 18:38:54.107179"], ["sign_in_count", 6], ["updated_at", "2014-07-28 02:59:21.152945"]]
+  [1m[36m (10.5ms)[0m  [1mcommit transaction[0m
+  Rendered articles/_form.html.erb (325.0ms)
+  Rendered articles/new.html.erb within layouts/application (413.9ms)
+Completed 200 OK in 1562ms (Views: 1173.2ms | ActiveRecord: 13.6ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-07-27 19:59:22 -0700
+
+
+Started GET "/assets/vendor/modernizr.js?body=1" for 127.0.0.1 at 2014-07-27 19:59:22 -0700
+
+
+Started GET "/assets/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2014-07-27 19:59:22 -0700
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-07-27 19:59:22 -0700
+
+
+Started GET "/assets/androidblog.css?body=1" for 127.0.0.1 at 2014-07-27 19:59:22 -0700
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2014-07-27 19:59:22 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-27 19:59:22 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-27 19:59:22 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-27 19:59:22 -0700
+
+
+Started GET "/assets/foundation/foundation.js?body=1" for 127.0.0.1 at 2014-07-27 19:59:23 -0700
+
+
+Started GET "/assets/foundation/foundation.abide.js?body=1" for 127.0.0.1 at 2014-07-27 19:59:23 -0700
+
+
+Started GET "/assets/foundation/foundation.accordion.js?body=1" for 127.0.0.1 at 2014-07-27 19:59:23 -0700
+
+
+Started GET "/assets/foundation/foundation.alert.js?body=1" for 127.0.0.1 at 2014-07-27 19:59:23 -0700
+
+
+Started GET "/assets/foundation/foundation.clearing.js?body=1" for 127.0.0.1 at 2014-07-27 19:59:23 -0700
+
+
+Started GET "/assets/foundation/foundation.dropdown.js?body=1" for 127.0.0.1 at 2014-07-27 19:59:23 -0700
+
+
+Started GET "/assets/foundation/foundation.interchange.js?body=1" for 127.0.0.1 at 2014-07-27 19:59:23 -0700
+
+
+Started GET "/assets/foundation/foundation.joyride.js?body=1" for 127.0.0.1 at 2014-07-27 19:59:23 -0700
+
+
+Started GET "/assets/foundation/foundation.magellan.js?body=1" for 127.0.0.1 at 2014-07-27 19:59:23 -0700
+
+
+Started GET "/assets/foundation/foundation.offcanvas.js?body=1" for 127.0.0.1 at 2014-07-27 19:59:23 -0700
+
+
+Started GET "/assets/foundation/foundation.orbit.js?body=1" for 127.0.0.1 at 2014-07-27 19:59:23 -0700
+
+
+Started GET "/assets/foundation/foundation.reveal.js?body=1" for 127.0.0.1 at 2014-07-27 19:59:23 -0700
+
+
+Started GET "/assets/foundation/foundation.slider.js?body=1" for 127.0.0.1 at 2014-07-27 19:59:23 -0700
+
+
+Started GET "/assets/foundation/foundation.tab.js?body=1" for 127.0.0.1 at 2014-07-27 19:59:23 -0700
+
+
+Started GET "/assets/foundation/foundation.tooltip.js?body=1" for 127.0.0.1 at 2014-07-27 19:59:23 -0700
+
+
+Started GET "/assets/foundation/foundation.topbar.js?body=1" for 127.0.0.1 at 2014-07-27 19:59:23 -0700
+
+
+Started GET "/assets/foundation/foundation.equalizer.js?body=1" for 127.0.0.1 at 2014-07-27 19:59:23 -0700
+
+
+Started GET "/assets/foundation.js?body=1" for 127.0.0.1 at 2014-07-27 19:59:23 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-27 19:59:23 -0700
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-07-27 19:59:23 -0700
+
+
+Started GET "/assets/androidblog.js?body=1" for 127.0.0.1 at 2014-07-27 19:59:23 -0700
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2014-07-27 19:59:23 -0700
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-07-27 19:59:23 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-27 19:59:23 -0700
+
+
+Started POST "/articles" for 127.0.0.1 at 2014-07-27 19:59:40 -0700
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LrtdyCwMrtcY5UwPdImo5J+SbDYKHIoW6bdDBCfXmRU=", "article"=>{"title"=>"My new Article", "body"=>"<div class=\"lc\">\r\n<h2>&nbsp;</h2>\r\n\r\n<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n</div>\r\n", "attachment"=>#<ActionDispatch::Http::UploadedFile:0xa43da00 @tempfile=#<File:/tmp/RackMultipart20140727-3109-1h20epr>, @original_filename="blog-github.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"article[attachment]\"; filename=\"blog-github.png\"\r\nContent-Type: image/png\r\n">, "tag_list"=>"Ruby"}, "commit"=>"Create Article"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+Command :: file -b --mime '/tmp/b390097d35d68739a6c40d3cf44491b120140727-3109-1dctymy.png'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/b390097d35d68739a6c40d3cf44491b120140727-3109-1hg43ml.png[0]' 2>/dev/null
+Command :: convert '/tmp/b390097d35d68739a6c40d3cf44491b120140727-3109-1hg43ml.png[0]' -auto-orient -resize "x100" -crop "100x100+76+0" +repage '/tmp/b390097d35d68739a6c40d3cf44491b120140727-3109-1hg43ml20140727-3109-u1uqe3.jpg'
+Command :: file -b --mime '/tmp/b390097d35d68739a6c40d3cf44491b120140727-3109-1hg43ml20140727-3109-u1uqe3.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/b390097d35d68739a6c40d3cf44491b120140727-3109-1hg43ml.png[0]' 2>/dev/null
+Command :: convert '/tmp/b390097d35d68739a6c40d3cf44491b120140727-3109-1hg43ml.png[0]' -auto-orient -resize "x480" -crop "480x480+365+0" +repage '/tmp/b390097d35d68739a6c40d3cf44491b120140727-3109-1hg43ml20140727-3109-19kraeu.jpg'
+Command :: file -b --mime '/tmp/b390097d35d68739a6c40d3cf44491b120140727-3109-1hg43ml20140727-3109-19kraeu.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/b390097d35d68739a6c40d3cf44491b120140727-3109-1hg43ml.png[0]' 2>/dev/null
+Command :: convert '/tmp/b390097d35d68739a6c40d3cf44491b120140727-3109-1hg43ml.png[0]' -auto-orient -resize "x480" -crop "480x480+365+0" +repage '/tmp/b390097d35d68739a6c40d3cf44491b120140727-3109-1hg43ml20140727-3109-1rymmw6.jpg'
+Command :: file -b --mime '/tmp/b390097d35d68739a6c40d3cf44491b120140727-3109-1hg43ml20140727-3109-1rymmw6.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/b390097d35d68739a6c40d3cf44491b120140727-3109-1hg43ml.png[0]' 2>/dev/null
+Command :: convert '/tmp/b390097d35d68739a6c40d3cf44491b120140727-3109-1hg43ml.png[0]' -auto-orient -resize "600>" '/tmp/b390097d35d68739a6c40d3cf44491b120140727-3109-1hg43ml20140727-3109-5p2ct6.jpg'
+Command :: file -b --mime '/tmp/b390097d35d68739a6c40d3cf44491b120140727-3109-1hg43ml20140727-3109-5p2ct6.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/b390097d35d68739a6c40d3cf44491b120140727-3109-1hg43ml.png[0]' 2>/dev/null
+Command :: convert '/tmp/b390097d35d68739a6c40d3cf44491b120140727-3109-1hg43ml.png[0]' -auto-orient -resize "1200>" '/tmp/b390097d35d68739a6c40d3cf44491b120140727-3109-1hg43ml20140727-3109-1mzxye4.jpg'
+Command :: file -b --mime '/tmp/b390097d35d68739a6c40d3cf44491b120140727-3109-1hg43ml20140727-3109-1mzxye4.jpg'
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+Command :: file -b --mime '/tmp/b390097d35d68739a6c40d3cf44491b120140727-3109-b56zf5.png'
+Binary data inserted for `string` type on column `attachment_content_type`
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "articles" ("attachment_content_type", "attachment_file_name", "attachment_file_size", "attachment_updated_at", "body", "created_at", "title", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["attachment_content_type", "image/png"], ["attachment_file_name", "blog-github.png"], ["attachment_file_size", 14504], ["attachment_updated_at", "2014-07-28 02:59:41.031264"], ["body", "<div class=\"lc\">\r\n<h2>&nbsp;</h2>\r\n\r\n<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>\r\n</div>\r\n"], ["created_at", "2014-07-28 02:59:42.674712"], ["title", "My new Article"], ["updated_at", "2014-07-28 02:59:42.674712"], ["user_id", 1]]
+  [1m[36mActsAsTaggableOn::Tag Load (1.8ms)[0m  [1mSELECT "tags".* FROM "tags"  WHERE (LOWER(name) = LOWER('ruby'))[0m
+  [1m[35mActsAsTaggableOn::Tag Load (0.3ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = 'tags' AND taggings.tagger_id IS NULL)  [["taggable_id", 2], ["taggable_type", "Article"]]
+  [1m[36mActsAsTaggableOn::Tagging Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "taggings"  WHERE ("taggings"."tag_id" = 1 AND "taggings"."taggable_type" = 'Article' AND "taggings"."taggable_id" = 2 AND "taggings"."context" = 'tags' AND "taggings"."tagger_id" IS NULL AND "taggings"."tagger_type" IS NULL) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "taggings" ("context", "created_at", "tag_id", "taggable_id", "taggable_type") VALUES (?, ?, ?, ?, ?)  [["context", "tags"], ["created_at", "2014-07-28 02:59:42.999079"], ["tag_id", 1], ["taggable_id", 2], ["taggable_type", "Article"]]
+  [1m[36mActsAsTaggableOn::Tag Load (0.1ms)[0m  [1mSELECT  "tags".* FROM "tags"  WHERE "tags"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mSQL (0.2ms)[0m  UPDATE "tags" SET "taggings_count" = COALESCE("taggings_count", 0) + 1 WHERE "tags"."id" = 1
+  [1m[36m (7.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/articles/2
+Completed 302 Found in 2039ms (ActiveRecord: 12.8ms)
+
+
+Started GET "/articles/2" for 127.0.0.1 at 2014-07-27 19:59:43 -0700
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mArticle Load (0.2ms)[0m  SELECT  "articles".* FROM "articles"  WHERE "articles"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mActsAsTaggableOn::Tag Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = ('tags')) LIMIT 1[0m  [["taggable_id", 2], ["taggable_type", "Article"]]
+  [1m[35mActsAsTaggableOn::Tag Load (0.2ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = ? AND "taggings"."taggable_type" = ? AND (taggings.context = ('tags'))  [["taggable_id", 2], ["taggable_type", "Article"]]
+  Rendered articles/show.html.erb within layouts/application (11.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 52ms (Views: 48.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/admin.css?body=1" for 127.0.0.1 at 2014-07-27 19:59:43 -0700
+
+
+Started GET "/assets/androidblog.css?body=1" for 127.0.0.1 at 2014-07-27 19:59:43 -0700
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2014-07-27 19:59:43 -0700
+
+
+Started GET "/assets/foundation_and_overrides.css?body=1" for 127.0.0.1 at 2014-07-27 19:59:43 -0700
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-07-27 19:59:43 -0700
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-07-27 19:59:43 -0700
+
+
+Started GET "/assets/vendor/modernizr.js?body=1" for 127.0.0.1 at 2014-07-27 19:59:43 -0700
+
+
+Started GET "/assets/foundation/foundation.js?body=1" for 127.0.0.1 at 2014-07-27 19:59:43 -0700
+
+
+Started GET "/assets/foundation/foundation.abide.js?body=1" for 127.0.0.1 at 2014-07-27 19:59:43 -0700
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-07-27 19:59:43 -0700
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-07-27 19:59:43 -0700
+
+
+Started GET "/assets/foundation/foundation.accordion.js?body=1" for 127.0.0.1 at 2014-07-27 19:59:43 -0700
+
+
+Started GET "/assets/foundation/foundation.alert.js?body=1" for 127.0.0.1 at 2014-07-27 19:59:43 -0700
+
+
+Started GET "/assets/foundation/foundation.clearing.js?body=1" for 127.0.0.1 at 2014-07-27 19:59:43 -0700
+
+
+Started GET "/assets/foundation/foundation.interchange.js?body=1" for 127.0.0.1 at 2014-07-27 19:59:43 -0700
+
+
+Started GET "/assets/foundation/foundation.dropdown.js?body=1" for 127.0.0.1 at 2014-07-27 19:59:43 -0700
+
+
+Started GET "/assets/foundation/foundation.joyride.js?body=1" for 127.0.0.1 at 2014-07-27 19:59:43 -0700
+
+
+Started GET "/assets/foundation/foundation.reveal.js?body=1" for 127.0.0.1 at 2014-07-27 19:59:43 -0700
+
+
+Started GET "/assets/foundation/foundation.magellan.js?body=1" for 127.0.0.1 at 2014-07-27 19:59:43 -0700
+
+
+Started GET "/assets/foundation/foundation.orbit.js?body=1" for 127.0.0.1 at 2014-07-27 19:59:43 -0700
+
+
+Started GET "/assets/foundation/foundation.offcanvas.js?body=1" for 127.0.0.1 at 2014-07-27 19:59:43 -0700
+
+
+Started GET "/assets/foundation/foundation.tab.js?body=1" for 127.0.0.1 at 2014-07-27 19:59:43 -0700
+
+
+Started GET "/assets/foundation/foundation.slider.js?body=1" for 127.0.0.1 at 2014-07-27 19:59:43 -0700
+
+
+Started GET "/assets/foundation/foundation.tooltip.js?body=1" for 127.0.0.1 at 2014-07-27 19:59:43 -0700
+
+
+Started GET "/assets/foundation.js?body=1" for 127.0.0.1 at 2014-07-27 19:59:43 -0700
+
+
+Started GET "/assets/foundation/foundation.equalizer.js?body=1" for 127.0.0.1 at 2014-07-27 19:59:43 -0700
+
+
+Started GET "/assets/foundation/foundation.topbar.js?body=1" for 127.0.0.1 at 2014-07-27 19:59:43 -0700
+
+
+Started GET "/assets/androidblog.js?body=1" for 127.0.0.1 at 2014-07-27 19:59:43 -0700
+
+
+Started GET "/assets/admin.js?body=1" for 127.0.0.1 at 2014-07-27 19:59:43 -0700
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-07-27 19:59:43 -0700
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-07-27 19:59:43 -0700
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-07-27 19:59:43 -0700
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2014-07-27 19:59:43 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='idx_ckeditor_assetable_type' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='idx_ckeditor_assetable_type' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='idx_ckeditor_assetable' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='idx_ckeditor_assetable' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comments_on_article_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comments_on_article_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_taggings_on_taggable_id_and_taggable_type_and_context' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_taggings_on_taggable_id_and_taggable_type_and_context' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='taggings_idx' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='taggings_idx' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tags_on_name' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tags_on_name' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='idx_ckeditor_assetable_type' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='idx_ckeditor_assetable_type' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='idx_ckeditor_assetable' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='idx_ckeditor_assetable' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comments_on_article_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comments_on_article_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_taggings_on_taggable_id_and_taggable_type_and_context' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_taggings_on_taggable_id_and_taggable_type_and_context' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='taggings_idx' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='taggings_idx' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tags_on_name' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tags_on_name' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to ChangeColumnTypeforArticle (20140728030738)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to ChangeColumnTypeforArticle (20140728030738)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mCREATE TEMPORARY TABLE "aArticles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" varchar(255), "user_id" integer, "published_at" varchar(255), "created_at" datetime, "updated_at" datetime, "attachment_file_name" varchar(255), "attachment_content_type" varchar(255), "attachment_file_size" integer, "attachment_updated_at" datetime, "total_comment" integer DEFAULT 0) [0m
+  [1m[35m (0.3ms)[0m  SELECT * FROM "Articles"
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "aArticles" ("id","title","body","user_id","published_at","created_at","updated_at","attachment_file_name","attachment_content_type","attachment_file_size","attachment_updated_at","total_comment") VALUES (1, 'My new Article', '<h2 style="font-style:italic;"><small><span style="font-family:verdana,geneva,sans-serif"><span style="font-size:12px">Compiling<span style="color:rgb(255, 0, 0)"> <strong>Cof</strong></span></span></span></small><small><span style="font-family:verdana,geneva,sans-serif"><span style="font-size:12px"><span style="color:rgb(255, 0, 0)"><strong>feeScript</strong></span> to JavaScript</span></span></small></h2>
+
+<hr />
+<h2 style="font-style:italic;"><small><span style="font-family:verdana,geneva,sans-serif"><span style="font-size:12px">requires a JavaScript runtime and the absence of a runtime will give you an <code>execjs</code> error. Usually Mac OS X and Windows come with a JavaScript runtime installed. Rails adds the <code>therubyracer</code> gem to the generated <code>Gemfile</code> in a commented line for new apps and you can uncomment if you need it. <code>therubyrhino</code> is the recommended runtime for JRuby users and is added by default to the <code>Gemfile</code> in apps generated under JRuby. You can investigate about all the supported runtimes at <a href="https://github.com/sstephenson/execjs#readme">ExecJS</a>.</span></span></small></h2>
+
+<p>&nbsp;</p>
+', 1, 'July 27, 2014', '2014-07-27 14:24:30.465480', '2014-07-27 18:41:36.222346', '10150727_468148449952308_7614539728978738864_n.jpg', 'image/jpeg', 89505, '2014-07-27 16:49:38.648423', 1)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "aArticles" ("id","title","body","user_id","published_at","created_at","updated_at","attachment_file_name","attachment_content_type","attachment_file_size","attachment_updated_at","total_comment") VALUES (2, 'My new Article', '<div class="lc">
+<h2>&nbsp;</h2>
+
+<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+</div>
+', 1, NULL, '2014-07-28 02:59:42.674712', '2014-07-28 02:59:42.674712', 'blog-github.png', 'image/png', 14504, '2014-07-28 02:59:41.031264', 0)
+  [1m[36m (0.3ms)[0m  [1mDROP TABLE "Articles"[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "Articles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text(255), "user_id" integer, "published_at" varchar(255), "created_at" datetime, "updated_at" datetime, "attachment_file_name" varchar(255), "attachment_content_type" varchar(255), "attachment_file_size" integer, "attachment_updated_at" datetime, "total_comment" integer DEFAULT 0) 
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "aArticles"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "Articles" ("id","title","body","user_id","published_at","created_at","updated_at","attachment_file_name","attachment_content_type","attachment_file_size","attachment_updated_at","total_comment") VALUES (1, 'My new Article', '<h2 style="font-style:italic;"><small><span style="font-family:verdana,geneva,sans-serif"><span style="font-size:12px">Compiling<span style="color:rgb(255, 0, 0)"> <strong>Cof</strong></span></span></span></small><small><span style="font-family:verdana,geneva,sans-serif"><span style="font-size:12px"><span style="color:rgb(255, 0, 0)"><strong>feeScript</strong></span> to JavaScript</span></span></small></h2>
+
+<hr />
+<h2 style="font-style:italic;"><small><span style="font-family:verdana,geneva,sans-serif"><span style="font-size:12px">requires a JavaScript runtime and the absence of a runtime will give you an <code>execjs</code> error. Usually Mac OS X and Windows come with a JavaScript runtime installed. Rails adds the <code>therubyracer</code> gem to the generated <code>Gemfile</code> in a commented line for new apps and you can uncomment if you need it. <code>therubyrhino</code> is the recommended runtime for JRuby users and is added by default to the <code>Gemfile</code> in apps generated under JRuby. You can investigate about all the supported runtimes at <a href="https://github.com/sstephenson/execjs#readme">ExecJS</a>.</span></span></small></h2>
+
+<p>&nbsp;</p>
+', 1, 'July 27, 2014', '2014-07-27 14:24:30.465480', '2014-07-27 18:41:36.222346', '10150727_468148449952308_7614539728978738864_n.jpg', 'image/jpeg', 89505, '2014-07-27 16:49:38.648423', 1)
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "Articles" ("id","title","body","user_id","published_at","created_at","updated_at","attachment_file_name","attachment_content_type","attachment_file_size","attachment_updated_at","total_comment") VALUES (2, 'My new Article', '<div class="lc">
+<h2>&nbsp;</h2>
+
+<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+</div>
+', 1, NULL, '2014-07-28 02:59:42.674712', '2014-07-28 02:59:42.674712', 'blog-github.png', 'image/png', 14504, '2014-07-28 02:59:41.031264', 0)[0m
+  [1m[35m (0.2ms)[0m  DROP TABLE "aArticles"
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140728030738"]]
+  [1m[35m (3.2ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='idx_ckeditor_assetable_type' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='idx_ckeditor_assetable_type' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='idx_ckeditor_assetable' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='idx_ckeditor_assetable' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comments_on_article_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comments_on_article_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_taggings_on_taggable_id_and_taggable_type_and_context' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_taggings_on_taggable_id_and_taggable_type_and_context' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='taggings_idx' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='taggings_idx' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tags_on_name' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tags_on_name' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
