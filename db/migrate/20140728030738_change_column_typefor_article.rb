@@ -1,5 +1,5 @@
 class ChangeColumnTypeforArticle < ActiveRecord::Migration
   def change
-change_column :Articles, :body, :text
+change_column :Article, :body, :text
   end
 end
